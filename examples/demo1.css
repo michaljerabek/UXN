@@ -1,0 +1,152 @@
+#demo1 {
+    font-size: 18px;
+    font-family: open-sans;
+    
+	margin: 50px 35px;
+}
+
+#demo1 ul {
+    list-style: none;
+
+    background-color: #f4f4f4;
+    box-shadow: 0 0 10px 0 rgba(10, 51, 68, 0.35);
+}
+
+#demo1 .UXN-horizontal {
+    height: 40px;
+    
+    border: 1px solid #6b9bae;
+}
+
+#demo1 ul ul {
+    position: absolute;
+    top: 100%;
+
+    width: 100%;
+    
+    display: none;
+}
+
+#demo1 .UXN__item--opened > ul {
+    display: block;
+}
+
+#demo1 .UXN-horizontal > li > ul {
+    left: -1px;
+    
+    width: calc(100% + 1px);
+}
+
+#demo1 .UXN-horizontal > li ~ li > ul {
+    left: 1px;
+    
+    width: calc(100% - 1px);
+}
+
+#demo1 .UXN-horizontal > li + li + li + li + li > ul {
+    width: 100%;
+}
+
+#demo1 ul ul ul {
+    left: 95%;
+    top: 25%;
+    
+    min-width: 175px;
+}
+
+#demo1 .UXN__subnav--left {
+    left: auto;
+    right: 95%;
+}
+
+#demo1 .UXN__subnav--top {
+    top: auto;
+    bottom: 25%;
+}
+
+#demo1 li {
+    text-align: left;
+    
+    position: relative;
+    float: left;
+
+    color: #23556a;
+
+    width: 20%;
+}
+
+#demo1 li li {
+    float: none;
+    
+    width: 100%;
+}
+
+#demo1 li:hover {
+    background-color: #0b6185;
+    color: #fff;
+}
+
+#demo1 li.UXN__item--highlighted {
+    background-color: #1b4253;
+    color: #fff;
+    
+    z-index: 2;
+}
+
+#demo1 ul ul .UXN__item--has-left {
+    text-align: right;
+}
+
+#demo1 a {
+    text-decoration: none;
+    line-height: 40px;
+
+    padding: 0 40px 0 20px;
+
+    color: #1b4253;
+
+    display: block;
+}
+
+#demo1 .UXN__item--highlighted > a,
+#demo1 a:hover {
+    color: #fff;
+}
+
+#demo1 .UXN-horizontal > li ~ li > a {
+    border-left: 1px solid #abc2ce;
+}
+
+#demo1 ul ul .UXN__item--has-left > a {
+    padding: 0 20px 0 40px;
+}
+
+#demo1 .UXN__item--has-subnav:after {
+    line-height: 40px;
+    
+    position: absolute;
+    right: 20px;
+    top: 0;
+    
+    color: #20546a;
+}
+
+#demo1 .UXN-horizontal > .UXN__item--has-subnav:after {
+    content: "\2193";
+}
+
+#demo1 .UXN__item--has-subnav:after {
+    content: "\2192";
+}
+
+#demo1 ul ul .UXN__item--has-left:after {
+    content: "\2190";
+    
+    left: 20px;
+    right: auto;
+}
+
+#demo1 .UXN__item--has-subnav:hover:after,
+#demo1 .UXN__item--opened:after {
+    color: #fff;
+}

@@ -1,0 +1,201 @@
+#demo2 {
+    font-size: 18px;
+    font-family: open-sans;
+    
+	margin: 50px 35px;
+}
+
+#demo2 ul {
+    list-style: none;
+    
+    background-color: #f4f4f4;
+    box-shadow: 0 0 10px 0 rgba(10, 51, 68, 0.35);
+}
+
+#demo2 .UXN-horizontal {
+    height: 40px;
+    
+    border: 1px solid #6b9bae;
+}
+
+#demo2 ul ul {
+    position: absolute;
+    top: 100%;
+    transform: translateY(-5%);
+
+    width: 100%;
+    
+    opacity: 0;
+    visibility: hidden;
+    transition: 
+        opacity    0.15s ease-in    0s, 
+        transform  0.15s ease-in    0s, 
+        visibility    0s         0.15s;
+}
+
+#demo2 .UXN-horizontal > li > ul {
+    left: -1px;
+    
+    width: calc(100% + 1px);
+}
+
+#demo2 .UXN-horizontal > li ~ li > ul {
+    left: 1px;
+    
+    width: calc(100% - 1px);
+}
+
+#demo2 .UXN-horizontal > li + li + li + li + li > ul {
+    width: 100%;
+}
+
+#demo2 ul ul ul {
+    left: 95%;
+    top: 25%;
+    transform: translateX(-5%);
+
+    min-width: 175px;
+}
+
+#demo2 ul ul .UXN__subnav--left {
+    left: auto;
+    right: 95%;
+    transform: translateX(5%);
+}
+
+#demo2 ul ul .UXN__subnav--top {
+    top: auto;
+    bottom: 25%;
+}
+
+#demo2 li {
+    text-align: left;
+    
+    position: relative;
+    float: left;
+
+    width: 20%;
+
+    color: #23556a;
+    
+    overflow: hidden;
+    transition: background 0.15s ease-in;
+}
+
+#demo2 .UXN__item--opened,
+#demo2 .UXN__item--has-fading-out {
+    overflow: visible;
+}
+
+#demo2 li li {
+    float: none;
+    
+    width: 100%;
+}
+
+#demo2 li:hover {
+    background-color: #0b6185;
+    color: #fff;
+    
+    transition: background 0.15s ease-out;
+}
+
+#demo2 ul .UXN__item--opened > ul {
+    transform: translateY(0%) translateX(0%);
+
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+
+    transition: 
+        opacity   0.15s ease-out 0s, 
+        transform 0.15s ease-out 0s;
+}
+
+#demo2 li.UXN__item--highlighted {
+    background-color: #1b4253;
+    color: #fff;
+}
+
+#demo2 ul ul .UXN__item--has-left {
+    text-align: right;
+}
+
+#demo2 a {
+    text-decoration: none;
+    line-height: 40px;
+
+    padding: 0 40px 0 20px;
+
+    color: inherit;
+
+    display: block;
+    transition: color 0.15s ease-in;
+}
+
+#demo2 li:hover > a {
+    color: #fff;
+
+    transition: color 0.15s ease-out;
+}
+
+#demo2 .UXN-horizontal > li ~ li > a {
+    border-left: 1px solid #abc2ce;
+}
+
+#demo2 ul ul .UXN__item--has-left > a {
+    padding: 0 20px 0 40px;
+}
+
+#demo2 .UXN__item--has-subnav:after {
+    line-height: 40px;
+    
+    position: absolute;
+    right: 20px;
+    top: 0;
+    transform: translateX(0%);
+    
+    color: #20546a;
+    
+    transition: 
+        color     0.15s ease-in, 
+        transform 0.15s ease-in;
+}
+
+#demo2 .UXN-horizontal > .UXN__item--has-subnav:after {
+    content: "\2193";
+    
+    transform: translateY(0%);
+}
+
+#demo2 .UXN__item--has-subnav:after {
+    content: "\2192";
+}
+
+#demo2 ul ul .UXN__item--has-left:after {
+    content: "\2190";
+    
+    left: 20px;
+    right: auto;
+}
+
+#demo2 .UXN__item--has-subnav:hover:after,
+#demo2 .UXN__item--highlighted:after {
+    transform: translateX(50%);
+
+    color: #fff;
+
+    transition: 
+        color     0.15s ease-out, 
+        transform 0.15s ease-out;
+}
+
+#demo2 .UXN__item--has-left.UXN__item--has-subnav:hover:after,
+#demo2 .UXN__item--has-left.UXN__item--highlighted:after {
+    transform: translateX(-50%);
+}
+
+#demo2 .UXN-horizontal > .UXN__item--highlighted.UXN__item--has-subnav:after,
+#demo2 .UXN-horizontal > .UXN__item--has-subnav:hover:after {
+    transform: translateY(25%);
+}

@@ -1,0 +1,249 @@
+@font-face {
+    font-family: 'MeteoconsRegular';
+    src: url('fonts/meteocons-webfont.eot');
+    src: url('fonts/meteocons-webfont.eot?#iefix') format('embedded-opentype'),
+        url('fonts/meteocons-webfont.woff') format('woff'),
+        url('fonts/meteocons-webfont.ttf') format('truetype'),
+        url('fonts/meteocons-webfont.svg#MeteoconsRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#window {
+	margin: 50px 0;
+
+    height: 200px;
+    
+    border: 1px solid #6b9bae;
+
+    overflow: auto;
+}
+
+#wrapper {
+    position: relative;
+}
+
+#wrapper:after {
+    content: "window";
+    font-family: source-code-pro, monospace;
+    font-size: 14px;
+    
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 5;
+    
+    padding: 2px 7px;
+    
+    color: #fff;
+    background-color: #1b4253;
+    
+    display: block;
+}
+
+#page {
+    padding-top: 30px;
+    height: 280px;
+}
+
+#demo7 + * {
+    clear: both;
+}
+
+#demo7 {
+    font-size: 18px;
+    font-family: open-sans, sans-serif;
+    
+	margin: 100px 25px;
+}
+
+#demo7 ul {    
+    text-align: center;
+    
+    list-style: none;
+}
+
+#demo7 ul .UXN__subnav {
+    z-index: 2;
+    position:absolute;
+    top: -90px;
+    left: -94px;
+    
+    transform: scale(0);
+    transform-origin: 50% 118px;
+    
+    background-color: #1b4253;
+    border-radius: 6px;
+    box-shadow: 0 0 10px 0 rgba(10, 51, 68, 0.35);
+    
+    visibility: hidden;
+    opacity: 0;
+    
+    transition: 
+        opacity    0.25s ease-in 0s,
+        transform  0.25s ease-in 0s,
+        visibility 0s            0.25s;
+}
+
+#demo7 ul .UXN__subnav:after {
+    content: "";
+    
+    position: absolute;
+    bottom: -38px;
+    left: 99px;
+    
+    width: 0;
+    height: 0;
+    
+    border: 19px solid;
+    border-color: #1b4253 transparent transparent transparent;
+}
+
+#demo7 ul .UXN__subnav--left {
+    left: -179px;
+    transform-origin: 203px 118px;
+}
+
+#demo7 ul .UXN__subnav--left.UXN__subnav--bottom {
+    left: -179px;
+    transform-origin: 203px -44px;
+}
+
+#demo7 ul .UXN__subnav--left:after {
+    left: 184px;
+}
+
+#demo7 ul .UXN__subnav--right {
+    left: auto;
+    right: -179px;   
+    
+    transform-origin: 37px 118px;
+}
+
+#demo7 ul .UXN__subnav--right.UXN__subnav--bottom {
+    left: auto;
+    right: -179px;  
+    
+    transform-origin: 37px -44px;
+}
+
+#demo7 ul .UXN__subnav--right:after {
+    left: auto;
+    right: 184px;
+}
+
+#demo7 ul .UXN__subnav--bottom {
+    top: 75px;
+    
+    transform-origin: 50% -44px;
+}
+
+#demo7 ul .UXN__subnav--bottom:after {
+    top: -38px;
+    
+    border-color: transparent transparent #1b4253 transparent;
+}
+
+#demo7 ul .UXN__subnav span {
+    font-size: 18px;
+    line-height: 32px;
+    text-align: center;
+    white-space: nowrap;
+
+    padding: 15px 10px;
+    width: 220px;
+    height: 32px;
+
+    display: block;
+}
+
+#demo7 ul .UXN__subnav a {
+    font-size: 13px;
+    font-weight: 400;
+    text-decoration: none;
+    
+    color: #fff;
+    
+    transition: font 0.05s ease-in;
+}
+
+#demo7 ul .UXN__subnav a:hover {
+    font-weight: 700;
+    
+    transition: font 0.05s ease-out;
+}
+
+#demo7 .UXN__item--opened > .UXN__subnav {
+    transform: scale(1);
+    
+    opacity: 1;
+    visibility: visible;
+    
+    transition: 
+        transform 0.25s ease-out 0s,
+        opacity   0.25s ease-out 0s;
+}
+
+#demo7 .UXN__item {
+    font-family: MeteoconsRegular;
+    font-size: 32px;
+    line-height: 50px;
+    text-align: left;
+    text-indent: 8px;
+    
+    position: relative;
+    float: left;
+
+    width: 48px;
+    height: 48px;
+
+    color: #1b4253;
+    background-color: #f4f4f4;
+    border: 2px solid #23556a;
+    border-radius: 50%;
+    box-shadow: 0 0 10px 0 rgba(10, 51, 68, 0.35);
+    
+    overflow: hidden;
+    cursor: default;
+    transition: 
+        background 0.15s ease-in,
+        color      0.15s ease-in,
+        border     0.15s ease-in;
+}
+
+#demo7 .UXN__item * {
+    font-family: open-sans, sans-serif;
+}
+
+#demo7 .UXN__item + .UXN__item {
+    margin-left: 12.2%;
+    margin-left: calc((100% / 5) - 62.5px);
+}
+
+#demo7 .UXN__item + .UXN__item + .UXN__item + .UXN__item + .UXN__item + .UXN__item {
+    line-height: 53px;
+}
+
+#demo7 .UXN__item--opened,
+#demo7 .UXN__item--has-fading-out {
+    overflow: visible;
+}
+
+#demo7 .UXN__item:hover,
+#demo7 .UXN__item--highlighted:hover,
+#demo7 .UXN__item--highlighted {
+    color: #fff;
+
+    transition-timing-function: ease-out;
+}
+
+#demo7 .UXN__item:hover {
+    border-color: #0b6185;
+    background-color: #0b6185;
+}
+
+#demo7 .UXN__item--highlighted:hover,
+#demo7 .UXN__item--highlighted {
+    border-color: #1b4253;
+    background-color: #1b4253;
+}
