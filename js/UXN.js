@@ -5340,18 +5340,12 @@
             ITEM_OPENED_Z_INDEX  : 3,
             OPENER_OPENED_Z_INDEX: 3,
             ITEM_FADING_Z_INDEX  : 2,
-            OPENER_FADING_Z_INDEX: 2,
-
-            IDS: {
-                STYLE: ns.UXN.PREFIX + "-debugger" + ns.UXN.BEM.EL + "style" + ns.UXN.BEM.MOD
-            },
-
-            CLASSES: {
-                SVG: ns.UXN.PREFIX + "-debugger" + ns.UXN.BEM.EL + "svg"
-            }
+            OPENER_FADING_Z_INDEX: 2
         };
         
-        var SVGNS = "http://www.w3.org/2000/svg",
+        var settingsInitialized = false,
+            
+            SVGNS = "http://www.w3.org/2000/svg",
             
             removeStylesForDebugging = function (uxn) {
 
@@ -5360,6 +5354,23 @@
 
             insertStylesForDebugging = function (uxn) {
 
+                if (!settingsInitialized) {
+                    
+                    ns.UXN.DEBUG = $.extend({
+                        
+                        IDS: {
+                            STYLE: ns.UXN.PREFIX + "-debugger" + ns.UXN.BEM.EL + "style" + ns.UXN.BEM.MOD
+                        },
+
+                        CLASSES: {
+                            SVG: ns.UXN.PREFIX + "-debugger" + ns.UXN.BEM.EL + "svg"
+                        }
+
+                    }, ns.UXN.DEBUG);
+                    
+                    settingsInitialized = true;   
+                }
+                
                 var $inserted = $("#" + ns.UXN.DEBUG.IDS.STYLE + uxn.id);
 
                 if ($inserted.length) {
