@@ -2,7 +2,7 @@
 
 <p>UXN allows you to create user-friendly navigations.</p>  
 
-<p>Documentation in English is in development... For now, you can follow the <a href="#"http://michaljerabek.github.io/UXN>demo</a>.</p>
+<p>Documentation in English is in development... For now, you can follow the <a href="http://michaljerabek.github.io/UXN#2">demo</a>.</p>
 
 <h1>UXN - Dokumentace (Czech)</h1>
 
@@ -149,7 +149,7 @@ transition: opacity 0.2s ease-out;
 }        
 </pre>
 
-<p>Vice viz <a href="#"http://michaljerabek.github.io/UXN>demo</a>.</p>     
+<p>Vice viz <a href="http://michaljerabek.github.io/UXN#2">demo</a>.</p>     
 
 <h2>Třídy používané k procházení navigace</h2>
 
@@ -284,7 +284,7 @@ transition: opacity 0.2s ease-out;
 <li>
 <code>UXN-horizontal</code> (<code>horizontal</code>):<br> 
 
-- Nabídka, která je horizontální (položky jsou za sebou). (Důležité pokud je <code>allowSliding</code> <code>true</code>. Vice <a href="http://michaljerabek.github.io/UXN#allowSliding">zde</a>.)
+- Nabídka, která je horizontální (položky jsou za sebou). (Důležité pokud je <code>allowSliding</code> <code>true</code>. Vice <a href="#allowSliding">zde</a>.)
 </li>
 </ul>
 
@@ -297,7 +297,7 @@ transition: opacity 0.2s ease-out;
 <li>Nastylujete třídy, které směřují opačným směrem. (Například <code>UXN__subnav--top</code> a <code>UXN__subnav--left</code>.)</li>
 </ol>
 
-<p>Pokud se nabídka vejde do okna (stránky, elementu) a tedy její pozice se nemění, tak nedostane žádnou třídu s vyjímkou případu, kdy používáte pozicování navigace od středu okna (stránky, elementu). Více <a href="http://michaljerabek.github.io/UXN#firstLevelPositionsFromCenter">zde</a>.</p>
+<p>Pokud se nabídka vejde do okna (stránky, elementu) a tedy její pozice se nemění, tak nedostane žádnou třídu s vyjímkou případu, kdy používáte pozicování navigace od středu okna (stránky, elementu). Více <a href="#firstLevelPositionsFromCenter">zde</a>.</p>
 
 <p>Pozice se může nastavovat podle okna, stránky nebo elementu. V případě nastavení podle stránky se nabídka obrátí, pokud by přesáhla <code>&lt;html&gt;</code>. Je-li <code>&lt;html&gt;</code> menší jak viewport, použije se velikost viewportu. Nevejde-li se nabídka ani opačným směrem, pak je upřednostňován směr dolu doprava.</p>
 
@@ -528,14 +528,14 @@ positionBase: UXN.POSITION_BASE.PAGE // UXN.POSITION_BASE.WINDOW // $("#wrapper"
 <li>
 <code>minZoneExt</code> (výchozí: <code>25</code>):<br> 
 
-- Nastavuje minimální rozšíření oblasti, která je považovaná za směřování k nabídce. (Míra rozšíření se zvětšuje s rostoucí vzdáleností myši od nabídky. Pro ukázku viz <a href="#"http://michaljerabek.github.io/UXN>demo</a> se zapnutým debug módem.)<br>
+- Nastavuje minimální rozšíření oblasti, která je považovaná za směřování k nabídce. (Míra rozšíření se zvětšuje s rostoucí vzdáleností myši od nabídky. Pro ukázku viz <a href="http://michaljerabek.github.io/UXN#2">demo</a> se zapnutým debug módem.)<br>
 - Typ: <code>Number</code>
 </li>
 
 <li>
 <code>maxZoneExt</code> (výchozí: <code>250</code>):<br> 
 
-- Nastavuje maximální rozšíření oblasti, která je považovaná za směřování k nabídce. (Míra rozšíření se zvětšuje s rostoucí vzdáleností myši od nabídky. Pro ukázku viz <a href="#"http://michaljerabek.github.io/UXN>demo</a> se zapnutým debug módem.)<br>
+- Nastavuje maximální rozšíření oblasti, která je považovaná za směřování k nabídce. (Míra rozšíření se zvětšuje s rostoucí vzdáleností myši od nabídky. Pro ukázku viz <a href="http://michaljerabek.github.io/UXN#2">demo</a> se zapnutým debug módem.)<br>
 - Typ: <code>Number</code>
 </li>
 
