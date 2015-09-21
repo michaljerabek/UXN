@@ -48,33 +48,33 @@ var mainNav = new UXN({
 
 <p>Základní navigace:</p>
 
-<pre>&lt;nav id="main-nav"&gt;  
+<pre>&lt;nav id=&quot;main-nav&quot;&gt;  
     &lt;ul&gt;
         &lt;li&gt;
-            &lt;a href="#"http://michaljerabek.github.io/UXN&gt;link&lt;/a&gt;  
+            &lt;a href=&quot;#&quot;&gt;link&lt;/a&gt;  
             &lt;ul&gt;
-                &lt;li&gt;...&lt;\li&gt;
+                &lt;li&gt;...&lt;/li&gt;
                 ...
             &lt;/ul&gt;  
-        &lt;\li&gt;
+        &lt;/li&gt;
         ...
     &lt;/ul&gt;  
 &lt;/nav&gt;</pre>
 
 <p>Na dotekových zařízeních může být vhodné použít otevírací element (viz demo <a href="http://michaljerabek.github.io/UXN#3">#3</a>), pokud chceme, aby bylo zároveň možné používat odkaz i mít možnost otevřít podnabídku. HTML by mohlo vypadat takto:</p>
 
-<pre>&lt;nav id="main-nav"&gt;  
+<pre>&lt;nav id=&quot;main-nav&quot;&gt;  
     &lt;ul&gt;
         &lt;li&gt;
-            &lt;a href="#"http://michaljerabek.github.io/UXN&gt;link&lt;/a&gt;  
-            &lt;div class="opener"&gt;
+            &lt;a href=&quot;#&quot;&gt;link&lt;/a&gt;  
+            &lt;div class=&quot;opener&quot;&gt;
                 &lt;span&gt;&rarr;&lt;/span&gt;  
                 &lt;ul&gt;
-                    &lt;li&gt;...&lt;\li&gt;
+                    &lt;li&gt;...&lt;/li&gt;
                     ...
                 &lt;/ul&gt;  
             &lt;/div&gt;  
-        &lt;\li&gt;
+        &lt;/li&gt;
         ...
     &lt;/ul&gt;  
 &lt;/nav&gt;</pre>
