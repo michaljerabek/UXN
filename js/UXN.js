@@ -5349,6 +5349,11 @@
             
             removeStylesForDebugging = function (uxn) {
 
+                if (!settingsInitialized) {
+
+                    return;
+                }
+
                 $("#" + ns.UXN.DEBUG.IDS.STYLE + uxn.id).remove();
             },
 

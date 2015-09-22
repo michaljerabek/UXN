@@ -1,6 +1,4 @@
-<p>
-
-    UXN allows you to create user-friendly navigations.</p>
+<p>UXN allows you to create user-friendly navigations.</p>
 
 <p>Documentation in English is in development... For now, you can follow the <a href="http://michaljerabek.github.io/UXN#2">demo</a>.</p>
 
