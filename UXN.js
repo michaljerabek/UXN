@@ -1160,7 +1160,7 @@
                 setCurrentSubnav.call(this, $NULL);
                 
                 UXN.U.removeClass(this.$nav, this.opt.activeInstance);
-                
+
                 if (this.opt.setPositions && this.opt.setPositionsOnDeactivation) {
 
                     if (this.positionChangedWhileOn) {
@@ -1932,7 +1932,7 @@
                     mousemoveHandler.call(ACTIVE_INSTANCE, $target);
 
                 } else {
-                    
+
                     for (i = 0; i < INSTANCES_COUNT; i++) {
 
                         if (INSTANCES[i].sleeping || INSTANCES[i].initializing) {
@@ -2215,15 +2215,15 @@
                         this.inTriangleZoneCounter++;
                     }
 
-                    if (!this.inside && this.inTriangleZoneCounter > UXN.MAX_EVENTS.OUT_OF_TRIANGLE) {
+                    if (!this.inside && (this.inTriangleZoneCounter    > UXN.MAX_EVENTS.OUT_OF_TRIANGLE ||
+                                         this.inSurroundingZoneCounter > UXN.MAX_EVENTS.OUT_OF_SURROUNDING)) {
 
                         clearTimeout(this.inZoneTimeout);
 
                         mouseLeave.call(this);
                     }
 
-                    if (((this.inside && this.$currentSubnav[0] !== this.$currentSubnavInZone[0]) || 
-                         this.inSurroundingZoneCounter > UXN.MAX_EVENTS.OUT_OF_SURROUNDING)) {
+                    if (this.inside && this.$currentSubnav[0] !== this.$currentSubnavInZone[0]) {
 
                         clearTimeout(this.inZoneTimeout);
 
@@ -2306,8 +2306,6 @@
                     this.$lastOpened = $NULL;
 
                     this.$lastOpenedSubnav = $NULL;
-
-                    turnOff.call(this);
 
                     return;
                 }
@@ -2475,7 +2473,7 @@
                     
                     return;
                 }
-                
+
                 this.mouseEnterThrottle = setTimeout($.proxy(mouseEnterThrottle, this), this.mouseEnterTimeout);
             },
 
@@ -2632,7 +2630,7 @@
                         }
                         
                         if (isResetCallback && $opener[0] !== this.$currentOpener[0]) {
-                            
+
                             return;
                         }
 
@@ -2648,9 +2646,15 @@
                             hideFollowingSubnavs.call(this, subnav$ || this.$currentSubnav, $opener, true);
                         }
 
-                        if (openSubnav.call(this, $opener, $item, subnav$ || this.$currentSubnav) !== false) {
+                        if (this.on && openSubnav.call(this, $opener, $item, subnav$ || this.$currentSubnav) !== false) {
 
                             setLastOpenedAfterShow.call(this, $opener);
+
+                        } else if (!this.on) {
+
+                            this.$lastOpener = $NULL;
+
+                            setLastOpenedAfterShow.call(this, $NULL);
                         }
                     }
                 }
@@ -2660,9 +2664,9 @@
                             
                 this.$lastOpened = $opener;
 
-                this.$lastOpenedSubnav = this.getSubnav($opener);
+                this.$lastOpenedSubnav = this.$lastOpened.length ? this.getSubnav($opener) : $NULL;
                 
-                if (this.opt.closeOnlyInLevel && this.hasSubnavOpenedSubnav(this.$lastOpenedSubnav)) {
+                if (this.opt.closeOnlyInLevel && this.$lastOpenedSubnav.length && this.hasSubnavOpenedSubnav(this.$lastOpenedSubnav)) {
 
                     this.$lastOpened = this.getOpenedOpenersInSubnav(this.$lastOpenedSubnav).first();
 
