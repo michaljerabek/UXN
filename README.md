@@ -1,6 +1,10 @@
-<h1>UXN (1.0 Beta) - Documentation</h1>
+<p>UXN allows you to create user-friendly navigations.</p>
 
-<p>UXN allows you to create user-friendly navigations. It tracks, if the mouse is moving to any menu, and if so, then the menu stays opened. As a result, the user need not to browse through the navigation like a robot and be moving the mouse at right angles (see the animation below).</p>
+<p>Documentation in English is in development... For now, you can follow the <a href="http://michaljerabek.github.io/UXN#2">demo</a>.</p>
+
+<h1>UXN (1.0 Beta) - Dokumentace (Czech)</h1>
+
+<p>UXN slouží k vytváření uživatelsky přívětivých navigací. Sleduje, jak uživatel prochází navigací a otevírá a zavírá nabídky podle toho, jestli k nim směřuje nebo ne. Díky tomu uživatel nemusí procházet navigaci jako robot a jezdit myší do pravého úhlu (viz ilustrační animace).</p>
 
 <p>Druhou funkcí UXN je nastavování pozic nabídek směrem do okna prohlížeče (stránky nebo elementu).</p>
 
