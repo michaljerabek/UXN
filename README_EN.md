@@ -2,23 +2,23 @@
 
 <p>UXN allows you to create user-friendly navigations. It tracks, if the mouse is moving to any menu, and if so, then the menu stays opened. As a result, the user need not to browse through the navigation like a robot and be moving the mouse at right angles (see the animation below).</p>
 
-<p>Druhou funkcí UXN je nastavování pozic nabídek směrem do okna prohlížeče (stránky nebo elementu).</p>
+<p>The second function of UXN is adjusting positions of submenus into the browser window (page or element).</p>
 
-<p>UXN funguje výhradně na základě tříd (atribut <code>class</code>) a nemění tak elementům atribut <code>style</code>. Všechny názvy tříd můžete změnit, jakkoliv si přejete.</p>
+<p>UXN works exclusively on the basis of classes (<code>class</code> attribute) and thus it doesn't modify the <code>style</code> attribute of elements. All class names can be changed however you want.</p>
 
-<p>UXN využívá nativní metody a API (<code>closest</code>, <code>matches</code>, <code>classList</code>, ...), pokud jsou k dispozici, pro zajištění maximální efektivity.</p>
+<p>UXN uses native methods and APIs (<code>closest</code>, <code>matches</code>, <code>classList</code>, ...), if they are available to ensure maximum efficiency.</p>
 
 <figure><img src="uxn-demo.gif" alt="UXN"></figure>
 
-<h2>Závislosti</h2>
+<h2>Dependencies</h2>
 
-<p><strong>jQuery</strong> - testováno s verzí 1.11.3</p>
+<p><strong>jQuery</strong> - tested with version 1.11.3</p>
 
-<h2>Podpora prohlížečů</h2>
+<h2>Browsers support</h2>
 
-<p>Všechny prohlížeče, které podporuje jQuery. Starší prohlížeče (IE7 a starší) jsou už ovšem docela pomalé.</p>
+<p>All browsers supported by jQuery. Although older browsers (IE7 and lower) can be too slow.</p>
 
-<h2>Základní použití</h2>
+<h2>Basic usage</h2>
 
 <h3>JavaScript</h3>
 
@@ -30,17 +30,17 @@ var mainNav = new UXN({
     itemOpened: "custom-opened-class"
 });</pre>
 
-<p>Výchozí selektory pro podnabíky a položky jsou <code>ul</code> a <code>li</code>. Ty je možné změnit nastavením <code>subnav</code> a <code>item</code>. Je důležité, aby těmito selektory nebylo možné vybrat jiné elementy než elementy podnabídek a položek.</p>
+<p>The default selectors for the submenus and items are <code>ul</code> and <code>li</code>. These can be changed by <code>subnav</code> and <code>item</code> properties. It's important that these selctors do not select any other elements than elements of a submenu or an item.</p>
 
-<p>Poznámka: Nepoužívejte sekterory jako <code>#main-nav .subnav</code>, ale pouze <code>.subnav</code>.</p>
+<p>Note: Do not use selectors like <code>#main-nav .subnav</code>, but only <code>.subnav</code>.</p>
 
-<p>Poznámka: Selektor vybírající navigaci nemusí být <code>id</code>, ale musí být unikátní.</p>
+<p>Note: <code>nav</code> selector does not have to be an <code>id</code>, but must be unique.</p>
 
-<p>Poznámka: Výchozí nastavení pro <code>nav</code> je <code>#main-nav</code>. Takže pokud má vaše navigace <code>id</code> <code>#main-nav</code>, stačí použít pouze <code>new UXN();</code>.</p>
+<p>Note: The default value of the <code>nav</code> property is <code>#main-nav</code>. So if your navigation has the <code>id</code> <code>#main-nav</code>, you can use just <code>new UXN();</code>.</p>
 
 <h3>HTML</h3>
 
-<p>Základní navigace:</p>
+<p>Basic navigation:</p>
 
 <pre>&lt;nav id=&quot;main-nav&quot;&gt;  
     &lt;ul&gt;
@@ -55,7 +55,7 @@ var mainNav = new UXN({
     &lt;/ul&gt;  
 &lt;/nav&gt;</pre>
 
-<p>Na dotekových zařízeních může být vhodné použít otevírací element (viz demo <a href="http://michaljerabek.github.io/UXN#3">#3</a>), pokud chceme, aby bylo zároveň možné používat odkaz i mít možnost otevřít podnabídku. HTML by mohlo vypadat takto:</p>
+<p>On touch devices may be suitable to use a dedicated opening element (see demo <a href="http://michaljerabek.github.io/UXN#3">#3</a>), if we want to be able to use item's link and be able to open a submenu inside the item. The HTML could look like this:</p>
 
 <pre>&lt;nav id=&quot;main-nav&quot;&gt;  
     &lt;ul&gt;
@@ -73,9 +73,9 @@ var mainNav = new UXN({
     &lt;/ul&gt;  
 &lt;/nav&gt;</pre>
 
-<p>Poznámka: Otevírací element můžete nastavit vlastností <code>opener</code>.</p>
+<p>Note: Selector for opening elements can be set by <code>opener</code> property.</p>
 
-<p>Poznámka: Poslední podnabídka nemusí mít žádné položky (viz demo <a href="http://michaljerabek.github.io/UXN#4">#4</a>, <a href="http://michaljerabek.github.io/UXN#6">#6</a>, <a href="http://michaljerabek.github.io/UXN#7">#7</a>).</p>
+<p>Note: Last submenus do not have to have any item (see demo <a href="http://michaljerabek.github.io/UXN#4">#4</a>, <a href="http://michaljerabek.github.io/UXN#6">#6</a>, <a href="http://michaljerabek.github.io/UXN#7">#7</a>).</p>
 
 <h3>CSS</h3>
 
@@ -143,7 +143,7 @@ var mainNav = new UXN({
 }        
 </pre>
 
-<p>Vice viz <a href="http://michaljerabek.github.io/UXN#2">demo</a>.</p>
+<p>For more, see the <a href="http://michaljerabek.github.io/UXN#2">demo</a>.</p>
 
 <h2>Třídy používané k procházení navigace</h2>
 
@@ -281,8 +281,8 @@ var mainNav = new UXN({
 <p>Nastavení podle čeho se určí pozice:</p>
 
 <pre>var mainNav = new UXN({
-nav: "#main-nav",
-positionBase: UXN.POSITION_BASE.PAGE // UXN.POSITION_BASE.WINDOW // $("#wrapper") // document.getElementById("wrapper")
+    nav: "#main-nav",
+    positionBase: UXN.POSITION_BASE.PAGE // UXN.POSITION_BASE.WINDOW // $("#wrapper") // document.getElementById("wrapper")
 });</pre>
 
 <p>Třídy:</p>

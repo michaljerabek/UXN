@@ -147,7 +147,7 @@ var mainNav = new UXN({
 }        
 </pre>
 
-<p>Vice viz <a href="http://michaljerabek.github.io/UXN#2">demo</a>.</p>
+<p>Více viz <a href="http://michaljerabek.github.io/UXN#2">demo</a>.</p>
 
 <h2>Třídy používané k procházení navigace</h2>
 
@@ -285,8 +285,8 @@ var mainNav = new UXN({
 <p>Nastavení podle čeho se určí pozice:</p>
 
 <pre>var mainNav = new UXN({
-nav: "#main-nav",
-positionBase: UXN.POSITION_BASE.PAGE // UXN.POSITION_BASE.WINDOW // $("#wrapper") // document.getElementById("wrapper")
+    nav: "#main-nav",
+    positionBase: UXN.POSITION_BASE.PAGE // UXN.POSITION_BASE.WINDOW // $("#wrapper") // document.getElementById("wrapper")
 });</pre>
 
 <p>Třídy:</p>
