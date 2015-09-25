@@ -180,12 +180,12 @@ var mainNav = new UXN({
 <ul>
     <li>
         <code>UXN__item--opened</code> (<code>itemOpened</code>):
-        <br> - Položka s otevřenou nabídkou. Tato třída by neměla sloužit k nastavení vzhledu a měla by zajišťovat pouze otevření podnabídky. (Pro nastavení vzhledu slouží třída <code>UXN__item--highlighted</code>.)
+        <br> - Položka s otevřenou nabídkou. Tato třída by neměla sloužit k nastavení vzhledu a měla by zajišťovat pouze otevření podnabídky (v konečné pozici; tzn. například včetně vlastnosti <code>transform</code> apod.). (Pro nastavení vzhledu slouží třída <code>UXN__item--highlighted</code>.)
     </li>
 
     <li>
         <code>UXN__opener--opened</code> (<code>openerOpened</code>):
-        <br> - Otevírací element s otevřenou nabídkou. Tato třída by neměla sloužit k nastavení vzhledu a měla by zajišťovat pouze otevření podnabídky. (Pro nastavení vzhledu slouží třída <code>UXN__opener--highlighted</code>.)
+        <br> - Otevírací element s otevřenou nabídkou. Tato třída by neměla sloužit k nastavení vzhledu a měla by zajišťovat pouze otevření podnabídky (v konečné pozici; tzn. například včetně vlastnosti <code>transform</code> apod.). (Pro nastavení vzhledu slouží třída <code>UXN__opener--highlighted</code>.)
     </li>
 
     <li>

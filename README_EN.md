@@ -55,7 +55,7 @@ var mainNav = new UXN({
     &lt;/ul&gt;  
 &lt;/nav&gt;</pre>
 
-<p>On touch devices may be suitable to use a dedicated opening element (see demo <a href="http://michaljerabek.github.io/UXN#3">#3</a>), if we want to be able to use item's link and be able to open a submenu inside the item. The HTML could look like this:</p>
+<p>On touch devices may be useful to use a dedicated opening element (see demo <a href="http://michaljerabek.github.io/UXN#3">#3</a>), if we want to be able to use item's link and be able to open a submenu inside the item. The HTML could look like this:</p>
 
 <pre>&lt;nav id=&quot;main-nav&quot;&gt;  
     &lt;ul&gt;
@@ -145,63 +145,63 @@ var mainNav = new UXN({
 
 <p>For more, see the <a href="http://michaljerabek.github.io/UXN#2">demo</a>.</p>
 
-<h2>Třídy používané k procházení navigace</h2>
+<h2>Classes used for browsing a menu</h2>
 
-<h3>Inicializace a aktivace</h3>
+<h3>Initialization and Activation</h3>
 
 <ul>
     <li>
         <code>UXN__item--has-subnav</code> (<code>itemHasSubnav</code>):
-        <br> - Všechny položky, které obsahují podnabídku.
+        <br> - Item with submenu.
     </li>
 
     <li>
         <code>UXN__opener--has-subnav</code> (<code>openerHasSubnav</code>):
-        <br> - Otevírací element obsahující podnabídku.
+        <br> - Opening element with submenu.
     </li>
 
     <li>
         <code>UXN</code> (<code>instance</code>):
-        <br> - Element, který je instancí UXN (nastavený vlastností <code>nav</code>). (Lze použít např. pro vytvoření fallbacku, pokud má uživatel vypnutý JS.)
+        <br> - Element that is an instance of UXN (set by the <code>nav</code> property). (Can be used for creating a fallback for users with disabled JS.)
     </li>
 
     <li>
         <code>UXN--active</code> (<code>activeInstance</code>):
-        <br> - Získá element specifikovaný v <code>nav</code>, pokud uživatel prochází nabídku.
+        <br> - Element that is an instance of UXN and user is browsing the menu.
     </li>
 </ul>
 
-<h3>Otevření podnabídky</h3>
+<h3>Opening of submenu</h3>
 
 <ul>
     <li>
         <code>UXN__item--opened</code> (<code>itemOpened</code>):
-        <br> - Položka s otevřenou nabídkou. Tato třída by neměla sloužit k nastavení vzhledu a měla by zajišťovat pouze otevření podnabídky. (Pro nastavení vzhledu slouží třída <code>UXN__item--highlighted</code>.)
+        <br> - Item with an opened submenu. This class should not be used for setting any visual styles (<code>background-color</code>, ...) and should ensure only the opening of submenu (in the final position; [<code>display</code>, <code>transform</code>, <code>left</code>, ...]). (For visual styles can be used <code>UXN__item--highlighted</code>.)
     </li>
 
     <li>
         <code>UXN__opener--opened</code> (<code>openerOpened</code>):
-        <br> - Otevírací element s otevřenou nabídkou. Tato třída by neměla sloužit k nastavení vzhledu a měla by zajišťovat pouze otevření podnabídky. (Pro nastavení vzhledu slouží třída <code>UXN__opener--highlighted</code>.)
-    </li>
+        <br> - Opening element with an opened submenu. This class should not be used for setting any visual styles (<code>background-color</code>, ...) and should ensure only the opening of submenu (in the final position; [<code>display</code>, <code>transform</code>, <code>left</code>, ...]). (For visual styles can be used <code>UXN__opener--highlighted</code>.)
+        </li>
 
     <li>
         <code>UXN__item--highlighted</code> (<code>itemHighlighted</code>):
-        <br> - Položka s otevřenou nabídkou.
+        <br> - Item with an opened submenu.
     </li>
 
     <li>
         <code>UXN__opener--highlighted</code> (<code>openerHighlighted</code>):
-        <br> - Otevírací element s otevřenou nabídkou.
+        <br> - Opening element with an opened submenu.
     </li>
 
     <li>
         <code>UXN__subnav--has-opened</code> (<code>subnavHasOpened</code>):
-        <br> - Nabídka s otevřenou položkou.
+        <br> - Submenu with an opened item.
     </li>
 
     <li>
         <code>UXN__subnav--current</code> (<code>currentSubnav</code>):
-        <br> - Nabídka, nad kterou se nachází kurzor (nebo se naposledy nacházel).
+        <br> - Submenu the mouse is over (or last was).
     </li>
 </ul>
 
