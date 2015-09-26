@@ -171,7 +171,7 @@ var mainNav = new UXN({
     </li>
 </ul>
 
-<h3>Opening of submenu</h3>
+<h3>Opening of Submenu</h3>
 
 <ul>
     <li>
@@ -205,61 +205,61 @@ var mainNav = new UXN({
     </li>
 </ul>
 
-<h3>Zavření podnabídky</h3>
+<h3>Closing of Submenu</h3>
 
 <ul>
 
     <li>
         <code>UXN__item--has-fading-out</code> (<code>itemHasFadingOut</code>):
-        <br> - Položka, jejíž podnabídka se zavírá. (Pouze v případě použítí <code>fading</code>.)
+        <br> - Item, which submenu is closing. (Only if <code>fading</code> is used.)
     </li>
 
     <li>
         <code>UXN__opener--has-fading-out</code> (<code>openerHasFadingOut</code>):
-        <br> - Otevírací element, jehož podnabídka se zavírá. (Pouze v případě použítí <code>fading</code>.)
+        <br> - Opening element, which submenu is closing. (Only if <code>fading</code> is used.)
     </li>
 
     <li>
         <code>UXN__subnav--has-fading-out</code> (<code>subnavHasFadingOut</code>):
-        <br> - Nabídka, která obsahuje položku, jejíž podnabídka se zavírá. (Pouze v případě použítí <code>fading</code>.)
+        <br> - Submenu, that has a closing submenu. (Only if <code>fading</code> is used.)
     </li>
 
     <li>
         <code>UXN-no-fading</code> (<code>noFading</code>):
-        <br> - Nabídka, která nepoužívá přechody (transitions) ani animace. V případě, že některé nabídky používají přechody nebo animace k jejich zavření a některé ne, je potřeba určit, u kterých nabídek se nemá očekávat událost <code>transitionend</code> / <code>animationend</code>.
+        <br> - Submenu, that does not use transitions or animations. In case of some submenus use transitions or animations and some not, it's necessary to identify for which submenus should not be expected a <code>transitionend</code> / <code>animationend</code> event (or a <code>done</code> function call in case of using JS animations).
     </li>
 
     <li>
         <code>UXN-sliding--vertical</code> (<code>slidingVertical</code>):
-        <br> - Umožňuje vlastní řízení otevírání nabídek. V případě, že má nabídka třídu <code>UXN-sliding--vertical</code>, podnabídka se otevře bez nutnosti zastavení myši, pokud se kurzor pohybuje vertikálně.
+        <br> - It allows custom control of opening submenus. In case that a submenu has a <code>UXN-sliding--vertical</code> class, the submenu is opened without having to stop the mouse, if mouse is moving vertically.
     </li>
 
     <li>
         <code>UXN-sliding--horizontal</code> (<code>slidingHorizontal</code>):
-        <br> - Umožňuje vlastní řízení otevírání nabídek. V případě, že má nabídka třídu <code>UXN-sliding--horizontal</code>, podnabídka se otevře bez nutnosti zastavení myši, pokud se kurzor pohybuje horizontálně.
-    </li>
+        <br> - It allows custom control of opening submenus. In case that a submenu has a <code>UXN-sliding--horizontal</code> class, the submenu is opened without having to stop the mouse, if mouse is moving horizontally.
+        </li>
 </ul>
 
-<p>Třídy obsahující "fading" jsou důležité pro správnou funkčnost CSS Transitions. Slouží zejména k nastavení daného elementu na <code>overflow: visible;</code>, aby nebyl element skrytý.</p>
+<p>Classes containing "fading" are important for the correct work of transitions and animations. They are mainly used to set the element to <code>overflow: visible;</code>, in order to its closing submenu would be visible.</p>
 
-<h3>Ostatní</h3>
+<h3>Other</h3>
 
 <ul>
 
     <li>
         <code>UXN-exclude</code> (<code>exclude</code>):
-        <br> - Nabídka, která se má vyřadit ze sledování pohybu myši.
+        <br> - Submenu that should be excluded from the mouse tracking.
     </li>
 
     <li>
         <code>UXN-exclude--inside</code> (<code>excludeInside</code>):
-        <br> - Nabídka, která se má vyřadit ze sledování pohybu myši, pokud se kurzor nachází uvnitř nabídky. (Viz demo <a href="http://michaljerabek.github.io/UXN#6">#6</a>.)
-        <br> - Užitečné pouze v případě, že <code>hideFollowing</code> je <code>false</code>.
+        <br> - Submenu that should be excluded from the mouse tracking, if the mouse is inside the submenu. (See demo <a href="http://michaljerabek.github.io/UXN#6">#6</a>.)
+        <br> - Useful only if <code>hideFollowing</code> is set to <code>false</code>.
     </li>
 
     <li>
         <code>UXN-horizontal</code> (<code>horizontal</code>):
-        <br> - Nabídka, která je horizontální (položky jsou za sebou). (Důležité pokud je <code>allowSliding</code> <code>true</code>. Vice <a href="#allowSliding">zde</a>.)
+        <br> - Submenu, which is horizontal. (Important, if <code>allowSliding</code> is set to <code>true</code>.<a href="#allowSliding">More info</a>.)
     </li>
 </ul>
 
