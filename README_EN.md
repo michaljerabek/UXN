@@ -14,7 +14,7 @@
 
 <p><strong>jQuery</strong> - tested with version 1.11.3</p>
 
-<h2>Browser support</h2>
+<h2>Browsers support</h2>
 
 <p>All browsers supported by jQuery. Although older browsers (IE7 and lower) can be too slow.</p>
 
@@ -145,7 +145,7 @@ var mainNav = new UXN({
 
 <p>For more, see the <a href="http://michaljerabek.github.io/UXN#2">demo</a>.</p>
 
-<h2>Classes Used for Browsing a Menu</h2>
+<h2>Classes used for browsing a menu</h2>
 
 <h3>Initialization and Activation</h3>
 
@@ -259,35 +259,33 @@ var mainNav = new UXN({
 
     <li>
         <code>UXN-horizontal</code> (<code>horizontal</code>):
-        <br> - Submenu, which is horizontal. (Important, if <code>allowSliding</code> is set to <code>true</code>. <a href="#allowSliding">More info</a>.)
+        <br> - Submenu, which is horizontal. (Important, if <code>allowSliding</code> is set to <code>true</code>.<a href="#allowSliding">More info</a>.)
     </li>
 </ul>
 
-<h2>Adjusting Positions</h2>
+<h2>Třídy pužívané pro nastavování pozic</h2>
 
-<p>Basic process is as follows:</p>
+<p>Základní postup je následující:</p>
 
 <ol>
-    <li>Set styles for submenus to default direction. (For example: Submenus will be positioned down right)</li>
-    <li>Set styles to classes in the opposite direction. (For example <code>UXN__subnav--top</code> and <code>UXN__subnav--left</code>.)</li>
+    <li>Nastylujete navigaci do výchozího směru. (Například se nabídky budou otevírat směrem dolu doprava.)</li>
+    <li>Nastylujete třídy, které směřují opačným směrem. (Například <code>UXN__subnav--top</code> a <code>UXN__subnav--left</code>.)</li>
 </ol>
 
-<p>If a submenu fits into the window (page, element) and thus its position is not changed, the submenu will not have any class except in the case, that adjusting positions from the center is used. <a href="#firstLevelPositionsFromCenter">More info.</a></p>
+<p>Pokud se nabídka vejde do okna (stránky, elementu) a tedy její pozice se nemění, tak nedostane žádnou třídu s vyjímkou případu, kdy používáte pozicování navigace od středu okna (stránky, elementu). Více <a href="#firstLevelPositionsFromCenter">zde</a>.</p>
 
-<p>If the positions are adjusted by the page (<code>&lt;html&gt;</code>) and the page is smaller then the browser window, the window is used instead.</p>
+<p>Pozice se může nastavovat podle okna, stránky nebo elementu. V případě nastavení podle stránky se nabídka obrátí, pokud by přesáhla <code>&lt;html&gt;</code>. Je-li <code>&lt;html&gt;</code> menší jak viewport, použije se velikost viewportu. Nevejde-li se nabídka ani opačným směrem, pak je upřednostňován směr dolu doprava.</p>
 
-<p>If a submenu does not fit into the window (page, element) even in the changed position, direction down right is preferred.</p>
+<p>První úroveň nabídek se může určovat podle jiného elementu než ostatní nabídky. V takovém případě se nastaví vlastnost <code>firstLevelPositionsFromCenter</code> na <code>true</code>, není-li vlastnost explicitně nastavena na <code>false</code>. Ostatní nabídky pak budou pokračovat v nastaveném směru.</p>
 
-<p>The first level of submenus can be adjusted by a different base then the others. In that case the property <code>firstLevelPositionsFromCenter</code> is set to <code>true</code>, if the property is not explicitly set to <code>false</code>. The other submenus will then continue the direction from the first level.</p>
-
-<p>Setting the base for positioning:</p>
+<p>Nastavení podle čeho se určí pozice:</p>
 
 <pre>var mainNav = new UXN({
     nav: "#main-nav",
     positionBase: UXN.POSITION_BASE.PAGE // UXN.POSITION_BASE.WINDOW // $("#wrapper") // document.getElementById("wrapper")
 });</pre>
 
-<p>Classes used for adjusting positions</p>
+<p>Třídy:</p>
 
 <ul>
 
