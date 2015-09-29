@@ -293,7 +293,7 @@ var mainNav = new UXN({
 
     <li>
         <code>UXN-position--skip</code> (<code>positionSkip</code>):
-        <br> - Může být nastaveno podnabíkám, u kterých se nemají pozice nastavovat. Typicky první úroveň podnabídek. (Může být nastaveno pomocí <code>positionSkipOnFirstLevel: true</code>, potom není nutné přidávat třídy.)
+        <br> - It may be set to submenus that should not be positioned. Typically, the first level of submenus. (May be set by code>positionSkipOnFirstLevel: true</code>, in this case, you don't have to add these classes.)
     </li>
 
     <li>
@@ -301,7 +301,7 @@ var mainNav = new UXN({
         <code>UXN__subnav--right</code> (<code>subnavRight</code>) |
         <code>UXN__subnav--top</code> (<code>subnavTop</code>) |
         <code>UXN__subnav--bottom</code> (<code>subnavBottom</code>):
-        <br> - Nabídka, která by měla být otočena příslušným směrem.
+        <br> - A submenu which should be positioned in the corresponding direction.
     </li>
 
     <li>
@@ -309,7 +309,7 @@ var mainNav = new UXN({
         <code>UXN__item--has--right</code> (<code>itemHasRight</code>) |
         <code>UXN__item--has--top</code> (<code>itemHasTop</code>) |
         <code>UXN__item--has--bottom</code> (<code>itemHasBottom</code>):
-        <br> - Položka s nabídkou nastavenou na příslušné pozici.
+        <br> - An item with a submenu in the corresponding direction.
     </li>
 
     <li>
@@ -317,13 +317,13 @@ var mainNav = new UXN({
         <code>UXN__opener--has--right</code> (<code>openerHasRight</code>) |
         <code>UXN__opener--has--top</code> (<code>openerHasTop</code>) |
         <code>UXN__opener--has--bottom</code> (<code>openerHasBottom</code>):
-        <br> - Otevírací element s nabídkou nastavenou na příslušné pozici.
-    </li>
+        <br> - An opening element with a submenu in the corresponding direction.
+        </li>
 </ul>
 
-<p>Upozornění: Nastavování pozic způsobuje spoždění před otevřením nabídek. Některé prohlížeče (nechci jmenovat&hellip; &hellip;IE) se navíc mohou na chvíli zablokovat.</p>
+<p>Note: The process of adujsting positions causes delay before the corresponding submenu is opened. Some browsers (IE) may not respond for a few milliseconds.</p>
 
-<h2>Nastavení</h2>
+<h2>Options</h2>
 
 <p>Pro nastavení vlastních tříd viz výše.</p>
 
