@@ -325,79 +325,82 @@ var mainNav = new UXN({
 
 <h2>Options</h2>
 
-<p>Pro nastavení vlastních tříd viz výše.</p>
+<p>To set up custom classes, see above.</p>
 
-<p>Nastavení lze za běhu aplikace nastavit pomocí <code>[objectUXN].opt</code>. Neměňte ale selektory a názvy tříd.</p>
+<p>Options can be changed at runtime by <code>instance.opt.property</code>, but do not change classes.</p>
 
 <ul>
 
     <li>
-        <code>nav</code> (výchozí: <code>"#main-nav"</code>):
-        <br> - Selektor elementu obalující navigaci. (Musí být unikátní pro celý dokument.)
-        <br> - Typ: <code>String</code>
+        <code>nav</code> (default: <code>"#main-nav"</code>):
+        <br> - Selector for an element wrapping the navigation (Must be unique.)
+        <br> - Type: <code>String</code>
     </li>
 
     <li>
-        <code>item</code> (výchozí: <code>"li"</code>):
-        <br> - Selektor položek navigace. (Uvnitř navigace nesmí vybírat nic jiného než položky.)
-        <br> - Typ: <code>String</code>
+        <code>item</code> (default: <code>"li"</code>):
+        <br> - Selector for items of the navigation. (Inside the navigation the selector must not select anything but items.)
+        <br> - Type: <code>String</code>
     </li>
 
     <li>
-        <code>subnav</code> (výchozí: <code>"ul"</code>):
-        <br> - Selektor nabídek navigace včetně první úrovně. (Uvnitř navigace nesmí vybírat nic jiného než nabídky.)
-        <br> - Typ: <code>String</code>
+        <code>subnav</code> (default: <code>"ul"</code>):
+        <br> - Selector for submenus of the navigation. (Inside the navigation the selector must not select anything but submenus.)
+        <br> - Type: <code>String</code>
     </li>
 
     <li>
-        <code>opener</code> (výchozí: hodnota z <code>item</code>):
-        <br> - Selector pro otevírací element. (Uvnitř navigace nesmí vybírat nic jiného než otevírací element.)
-        <br> - Typ: <code>String</code>
+        <code>opener</code> (default: value from <code>item</code>):
+        <br> - Selector for opening elements of the navigation. (Inside the navigation the selector must not select anything but opening elements.)
+        <br> - Type: <code>String</code>
     </li>
 
     <li>
-        <code>closer</code> (výchozí: <code>"a"</code>):
-        <br> - Selector pro element, který po kliknutí navigace zavře.
-        <br> - Typ: <code>String</code>
+        <code>closer</code> (default: <code>"a"</code>):
+        <br> - Selector for elements closing the navigation on click.
+        <br> - Type: <code>String</code>
     </li>
 
     <li>
-        <code>autoSleep</code> (výchozí: <code>true</code>):
-        <br> - Navigace přestane reagovat na události, pokud se nachází mimo okno prohlížeče (nebo je unitř elementu s <code>display: none</code>). - Typ: <code>Boolean</code>
+        <code>autoSleep</code> (default: <code>true</code>):
+        <br> - The navigation stop responding to events, if it's outside the viewport (or inside an element with <code>display: none</code>).
+        <br> - Type: <code>Boolean</code>
     </li>
 
     <li>
-        <code>fading</code> (výchozí: <code>UXN.FADING_TYPE.NONE</code>):
-        <br> - Nastavuje, jestli nabídky používají CSS Transitions, CSS Animations nebo javascriptové animace.
-        <br> - Možnosti: <code>UXN.FADING_TYPE.TRANSITION</code> |
+        <code>fading</code> (default: <code>UXN.FADING_TYPE.NONE</code>):
+        <br> - Sets, whether the navigation uses CSS Transitions, CSS Animations or JavaScript animations.
+        <br> - Options: <code>UXN.FADING_TYPE.TRANSITION</code> |
         <code>UXN.FADING_TYPE.ANIMATION</code> |
         <code>UXN.FADING_TYPE.JS</code> |
         <code>UXN.FADING_TYPE.NONE</code>
-        <br> - Typ: <code>UXN.FADING_TYPE</code>
+        <br> - Type: <code>UXN.FADING_TYPE</code>
     </li>
 
     <li>
-        <code>animation</code> (výchozí: <code>"UXN-hide"</code>):
+        <code>animation</code> (default: <code>"UXN-hide"</code>):
         <br> - Název animace (nebo pole názvů), která zavírá nabídku.
-        <br> - Typ: <code>String</code> / <code>Array</code>
+        <br> - Name of the animation (or array with names) used for closing a submenu.
+        <br> - Type: <code>String</code> / <code>Array</code>
     </li>
 
     <li>
-        <code>delayHide</code> (výchozí: <code>false</code>):
-        <br> - Nastavuje, jestli se má otevřená nabídka schovat okamžitě po odjetí z položky nebo až těsně před tím, než se otevře další (popř. se myš zastaví na dobu určenou v <code>openTimeout</code>).
-        <br> - Typ: <code>Boolean</code>
+        <code>delayHide</code> (default: <code>false</code>):
+        <br> - Sets, whether an opened submenu should be closed immediately after the mouse leaves the item or just before another submenu is opened (or the mouse is not moving for an <code>openTimeout</code>).
+        <br> - Type: <code>Boolean</code>
     </li>
 
     <li>
-        <code>autoHide</code> (výchozí: <code>true</code>):
-        <br> - Nastavuje, jestli se v případě, že kurzor zastaví mimo nabídku, má navigace automaticky zavřít po uplynutí <code>outsideTimeout</code>.
-        <br> - Typ: <code>Boolean</code>
+        <code>autoHide</code> (default: <code>true</code>):
+        <br> - Sets, if in the case, that the mouse is stopped outside the navigation, the navigation should be automatically closed after an <code>outsideTimeout</code>.
+        <br> - Type: <code>Boolean</code>
     </li>
 
     <li>
-        <code>closeOnlyInLevel</code> (výchozí: <code>false</code>):
+        <code>closeOnlyInLevel</code> (default: <code>false</code>):
+        <br> - 
         <br> - Zavírá pouze nabídky na úrovni, na které jsou přepnuty. To umožňuje zachovat poslední otevřenou podnabídku. Viz demo <a href="http://michaljerabek.github.io/UXN#6">#6</a>.
-        <br> - Typ: <code>Boolean</code>
+        <br> - Type: <code>Boolean</code>
     </li>
 
     <li>
