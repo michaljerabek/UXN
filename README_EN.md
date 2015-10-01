@@ -398,20 +398,20 @@ var mainNav = new UXN({
 
     <li>
         <code>closeOnlyInLevel</code> (default: <code>false</code>):
-        <br> - 
-        <br> - Zavírá pouze nabídky na úrovni, na které jsou přepnuty. To umožňuje zachovat poslední otevřenou podnabídku. Viz demo <a href="http://michaljerabek.github.io/UXN#6">#6</a>.
+        <br> - It will only close the submenu, which is at the same level as the newly opened. This allows you to keep open the last submenu. See demo <a href="http://michaljerabek.github.io/UXN#6">#6</a>.
         <br> - Type: <code>Boolean</code>
     </li>
 
     <li>
-        <code>doNotCloseFirstLevel</code> (výchozí: <code>false</code>):
-        <br> - Nabídka na první úrovni zůstane vždy otevřena. Při inicializaci je možné první nabídku otevřít při spuštění <code>onInit</code> metodou <code>open</code>. - Typ: <code>Boolean</code>
+        <code>doNotCloseFirstLevel</code> (default: <code>false</code>):
+        <br> - The last opened submenu at the first level stays always opened. (During the initialization a submenu at the first level can be opened by an <code>onInit</code> handler by using <code>open</code> method.)
+        <br> - Type: <code>Boolean</code>
     </li>
 
     <li>
-        <code>hideFollowing</code> (výchozí: <code>true</code>):
-        <br> - Nastavuje, jestli se mají zavřít nabídky následující po nabídce, nad kterou se nachází kurzor a neuplynul čas <code>insideTimeout</code>. Při nastavení delšího času <code>insideTimeout</code> a <code>hideFollowing</code> na <code>false</code> je možné se vrátit v nabídce zpět, pokud si uživatel uvědomí, že správná volba se nachází v již otevřené nabídce, ale už se přesunul zpět do jiné.
-        <br> - Typ: <code>Boolean</code>
+        <code>hideFollowing</code> (default: <code>true</code>):
+        <br> - Sets, if the submenus following a submenu the mouse is over should be immediately closed and timer <code>insideTimeout</code> did not elapse. (Applicable if the user is browsing the navigation [moving the mouse] backwards.) If the <code>insideTimeout</code> is set to a longer time and <code>hideFollowing</code> to <code>false</code>, then the user may return back, if he/she realizes, that the searched item is inside already opened submenu (several levels down), but he/she had moved back into a different submenu (several levels up).
+        <br> - Type: <code>Boolean</code>
     </li>
 
     <li>
