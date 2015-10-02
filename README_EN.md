@@ -410,38 +410,39 @@ var mainNav = new UXN({
 
     <li>
         <code>hideFollowing</code> (default: <code>true</code>):
-        <br> - Sets, if the submenus following a submenu the mouse is over should be immediately closed and timer <code>insideTimeout</code> did not elapse. (Applicable if the user is browsing the navigation [moving the mouse] backwards.) If the <code>insideTimeout</code> is set to a longer time and <code>hideFollowing</code> to <code>false</code>, then the user may return back, if he/she realizes, that the searched item is inside already opened submenu (several levels down), but he/she had moved back into a different submenu (several levels up).
+        <br> - Sets, if the submenus following a submenu the mouse is over should be immediately closed even if the <code>insideTimeout</code> timer did not elapse. (Applicable if the user is browsing the navigation [moving the mouse] backwards.) If the <code>insideTimeout</code> is set to a longer time and <code>hideFollowing</code> to <code>false</code>, then the user may return back, if he/she realizes, that the searched item is inside already opened submenu (several levels down), but he/she had moved back into a different submenu (several levels up).
         <br> - Type: <code>Boolean</code>
     </li>
 
     <li>
-        <code>keepOpened</code> (výchozí: <code>true</code>):
-        <br> - Poslední otevřená nabídka zůstane otevřená i pokud se kurzor nachází mimo položku uvnitř rodičovské nabídky.
-        <br> - Typ: <code>Boolean</code>
+        <code>keepOpened</code> (default: <code>true</code>):
+        <br> - The last opened item stays opened even if the mouse is outside of any item (but inside the same submenu).
+        <br> - Type: <code>Boolean</code>
     </li>
 
     <li>
-        <code>excludeFirstLevel</code> (výchozí: <code>true</code>):
-        <br> - Vyřadí první úroveň navigace ze sledování kurzoru. - Typ: <code>Boolean</code>
+        <code>excludeFirstLevel</code> (default: <code>true</code>):
+        <br> - Excludes the first level from mouse tracking.
+        <br> - Type: <code>Boolean</code>
     </li>
 
     <li id="allowSliding">
-        <code>allowSliding</code> (výchozí: <code>true</code>):
-        <br> - Nastavuje, jestli se uživatel musí nad nabídkou zastavit po dobu <code>openTimeout</code>, než se nabídka otevře. V případě, že není nastaveno <code>ignoreLayoutOnSliding</code> na <code>true</code>, je potřeba u horizontálních nabídek přidat třídu specifikovanou v <code>horizontal</code>.
-        <br> - Pokud používáte nastavování pozic, pak stejně dojde k určitému spoždění.
-        <br> - Typ: <code>Boolean</code>
+        <code>allowSliding</code> (default: <code>true</code>):
+        <br> - Sets, if the user does not have to stop the mouse over an item for a time set by <code>openTimeout</code> before a submenu is opened. This feature takes into account the layout of the current submenu. In case that <code>ignoreLayoutOnSliding</code> is set to <code>false</code> (default), it is necessary to add a class specified in <code>horizontal</code> to submenus, which are horizontal. (The default behavior can be overridden using classes.)
+        <br> - If the adjusting of positions is used, opening will be delayed a little more.
+        <br> - Type: <code>Boolean</code>
     </li>
 
     <li>
-        <code>allowSlidingOnFirstLevel</code> (výchozí: <code>false</code>):
-        <br> - Určuje, jestli <code>allowSliding</code> platí i pro první úroveň navigace.
-        <br> - Typ: <code>Boolean</code>
+        <code>allowSlidingOnFirstLevel</code> (default: <code>false</code>):
+        <br> - Sets, if <code>allowSliding</code> is used even for the first level.
+        <br> - Type: <code>Boolean</code>
     </li>
 
     <li>
-        <code>ignoreLayoutOnSliding</code> (výchozí: <code>false</code>):
-        <br> - Určuje, jestli se při spoždění otevírání má brát v úvahu rozložení nabídky. V případě, že jsou odkazy pod sebou (nabídka je vertikální), pak se otevírání bude spožďovat pouze pokud se kurzor pohybuje ve vertikálním směru. Pro detailnější natavení viz <code>slidingZone</code>.
-        <br> - Typ: <code>Boolean</code>
+        <code>ignoreLayoutOnSliding</code> (default: <code>false</code>):
+        <br> - Sets, if <code>allowSliding</code> feature should take into account the layout of the current submenu. (If a submenu is vertical, the need to stop the mouse will be applied only if the mouse is moving vertically.) 
+        <br> - Type: <code>Boolean</code>
     </li>
 
     <li>
