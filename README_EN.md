@@ -446,52 +446,51 @@ var mainNav = new UXN({
     </li>
 
     <li>
-        <code>slidingZone</code> (výchozí: <code>75</code>):
-        <br> - Nastavuje procentuální velikost zóny (od strany vzálenější od kurzoru), ve které se nebude otevírání nabídky spožďovat, pokud se myš pohybuje v opačném směru než je rozložení nabídky. (Je-li nabídka vertikální a myš se pohybuje horizontálně v této zóně, otevření se nespozdí.)
-        <br> - Typ: <code>Number</code>
+        <code>slidingZone</code> (default: <code>75</code>):
+        <br> - Sets the percentage size of the zone (from the farther side of the cursor), in which the opening of submenus won't be delayed.
+        <br> - Type: <code>Number</code>
     </li>
 
     <li>
-        <code>openTimeout</code> (výchozí: <code>30</code>):
-        <br> - Určuje dobu, na kterou musí uživatel zastavit myš nad položkou, aby se otevřela.
-        <br> - Pokud používáte nastavování pozic, pak se spoždění o něco prodlouží.
-        <br> - Typ: <code>Number</code>
+        <code>openTimeout</code> (default: <code>30</code>):
+        <br> - Sets the time for which the user must stop the mouse over an item to open it.
+        <br> - Type: <code>Number</code>
     </li>
 
     <li>
-        <code>preventClickOnTouch</code> (výchozí: <code>true</code>):
-        <br> - Nastavuje, jestli se má po tapnutí (<code>"ontouchend"</code>) na položku, která má podnabídku a nemá otevírací element, zablokovat události kliknutí. (<code>"onclick"</code>)
-        <br> - Typ: <code>Boolean</code>
+        <code>preventClickOnTouch</code> (default: <code>true</code>):
+        <br> - Sets, whether click events (<code>onclick</code>) should be blocked (<code>preventDefault</code>), if the user taps (<code>ontouchend</code>) on an item with a submenu (and without an opening element).
+        <br> - Type: <code>Boolean</code>
     </li>
 
     <li>
-        <code>closeOnClick</code> (výchozí: <code>false</code>):
-        <br> - Nastavuje, jestli se má po kliknutí (kamkoliv) nabídka zavřít nebo zůstat otevřená.
-        <br> - Typ: <code>Boolean</code>
+        <code>closeOnClick</code> (default: <code>false</code>):
+        <br> - Sets, whether the navigation should be closed after the user clicks (anywhere).
+        <br> - Type: <code>Boolean</code>
     </li>
 
     <li>
-        <code>mouseTolerance</code> (výchozí: <code>1</code>):
-        <br> - Počet pixelů před kurzorem ve směru jeho pohybu, které mají být brány v úvahu při testování, jestli uživatel směřuje k nabídce. (Pokud je nabídka například vysoká a položky, které ji otevírají úzké, může být lepší toleranci nastavit na <code>0</code>.)
-        <br> - Typ: <code>Number</code>
+        <code>mouseTolerance</code> (default: <code>1</code>):
+        <br> - The number of pixels in the direction of the mouse movement, that should be taken into account when testing, whether the mouse is moving towards any submenu. 
+        <br> - Type: <code>Number</code>
     </li>
 
     <li>
-        <code>minZoneExt</code> (výchozí: <code>25</code>):
-        <br> - Nastavuje minimální rozšíření oblasti, která je považovaná za směřování k nabídce. (Míra rozšíření se zvětšuje s rostoucí vzdáleností myši od nabídky. Pro ukázku viz <a href="http://michaljerabek.github.io/UXN#2">demo</a> se zapnutým debug módem.)
-        <br> - Typ: <code>Number</code>
+        <code>minZoneExt</code> (default: <code>25</code>):
+        <br> - Sets s minimum extention of the zone, which is considered as "moving towards the menu". (The size of the extension increases with increasing distance from the mouse to the navigation. For an example, see the <a href="http://michaljerabek.github.io/UXN#2">demo</a> and turn on debug mode.)
+        <br> - Type: <code>Number</code>
     </li>
 
     <li>
-        <code>maxZoneExt</code> (výchozí: <code>250</code>):
-        <br> - Nastavuje maximální rozšíření oblasti, která je považovaná za směřování k nabídce. (Míra rozšíření se zvětšuje s rostoucí vzdáleností myši od nabídky. Pro ukázku viz <a href="http://michaljerabek.github.io/UXN#2">demo</a> se zapnutým debug módem.)
-        <br> - Typ: <code>Number</code>
+        <code>maxZoneExt</code> (default: <code>250</code>):
+        <br> - Sets s maximum extention of the zone, which is considered as "moving towards the menu". (The size of the extension increases with increasing distance from the mouse to the navigation. For an example, see the <a href="http://michaljerabek.github.io/UXN#2">demo</a> and turn on debug mode.)
+        <br> - Type: <code>Number</code>
     </li>
 
     <li>
-        <code>zoneExtOffset</code> (výchozí: <code>0</code>):
-        <br> - Nastavuje fixní rozšíření (zúžení) oblasti, která je považovaná za směřování k nabídce. (Hodnota se přičte k celkovému výsledku.)
-        <br> - Typ: <code>Number</code>
+        <code>zoneExtOffset</code> (default: <code>0</code>):
+        <br> - Sets s fixed extention (reduction) of the zone, which is considered as "moving towards the menu". (The value is added to the result.)
+        <br> - Type: <code>Number</code>
     </li>
 
     <li>
