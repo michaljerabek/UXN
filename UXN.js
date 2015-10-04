@@ -477,6 +477,7 @@
             SCROLL       : 100,
             SCROLL_INSIDE:  50,
             SCROLL_NEXT  : 350,
+            SCROLL_TOUCH : 200,
             RESIZE       : 100,
             ELEMENT_SIZE : 250,
             INTERVAL     : 175,
@@ -1086,6 +1087,11 @@
 
                 if (UXN.MULTIPLE_INSTANCES) {
 
+                    if (this.inside) {
+
+                        return;
+                    }
+
                     if ((!this.opt.doNotCloseFirstLevel && !this.hasFirstLevelOpenedSubnav()) || 
                         ( this.opt.doNotCloseFirstLevel && this.getOpenedItemsInSubnav(this.$firstLevel).length === 1)) {
                         
@@ -1135,6 +1141,11 @@
                     return;
                 }
                 
+                if (this.inside) {
+
+                    return;
+                }
+
                 if (!this.opt.doNotCloseFirstLevel && this.hasFirstLevelOpenedSubnav()) {
 
                     return;
@@ -1298,7 +1309,7 @@
                     
                     this.$lastOpened = this.getOpenedOpenersInSubnav(this.$currentSubnav).first();
                     
-                    this.$lastOpenedSubnav = this.getSubnav(this.$lastOpened);
+                    this.$lastOpenedSubnav = this.$lastOpened.length ? this.getSubnav(this.$lastOpened) : $NULL;
                 }
                 
                 return {
@@ -1725,9 +1736,14 @@
 
                 clearTimeout(this.scrollTimeout);
 
-                this.scrollTimeout = setTimeout($.proxy(
-                    resetOnScroll, this, x, y), this.inside ? UXN.EVENT_TIMERS.SCROLL_INSIDE : UXN.EVENT_TIMERS.SCROLL
-                );
+                var throttleTime = this.inside ? UXN.EVENT_TIMERS.SCROLL_INSIDE : UXN.EVENT_TIMERS.SCROLL;
+
+                if (byTouch) {
+
+                    throttleTime = UXN.EVENT_TIMERS.SCROLL_TOUCH;
+                }
+
+                this.scrollTimeout = setTimeout($.proxy(resetOnScroll, this, x, y), throttleTime);
                 
                 if (byBaseElement) {
 
@@ -2440,7 +2456,7 @@
             mouseEnter = function ($target, $item, callback, byTouch) {
 
                 if (this.inside && $target.length) {
-                    
+
                     if (byTouch && this.isAnySubnavFading() && this.isInFadingSubnav($target)) {
 
                         stopFadingOut.call(this);
@@ -2628,7 +2644,7 @@
                             
                             callback();
                         }
-                        
+
                         if (isResetCallback && $opener[0] !== this.$currentOpener[0]) {
 
                             return;
@@ -4168,6 +4184,16 @@
                         data.items[i] = data.openers[i];
                     }
                     
+                    if (UXN.U.hasClass(data.items[i], this.opt.itemHighlighted)) {
+
+                        UXN.U.removeClass(data.items[i], this.opt.itemHighlighted);
+
+                        if (!this.itemOpensSubnav) {
+
+                            UXN.U.removeClass(data.items[i], this.opt.openerHighlighted);
+                        }
+                    }
+
                     if (data.subnavs[i].data(DATA.RELATIVE_TO_PARENT)) {
 
                         $parentSubnav = this.getClosestSubnav(data.items[i]);
