@@ -494,89 +494,91 @@ var mainNav = new UXN({
     </li>
 
     <li>
-        <code>surroundingZone</code> (výchozí: <code>15</code>):
-        <br> - Velikost oblasti kolem nabídky, na kterou může uživatel najet, ikdyž kurzorem směřuje od nabídky. Navigace se zavře za čas nastavený v <code>surroundingTimeout</code>.
-        <br> - Typ: <code>Number</code>
+        <code>surroundingZone</code> (default: <code>15</code>):
+        <br> - Size (in px) of a zone around a submenu to which the user may move the mouse and the navigation won't be immediately closed (but for the time set in <code>surroundingTimeout</code>).
+        <br> - Type: <code>Number</code>
     </li>
 
     <li>
-        <code>insideTimeout</code> (výchozí: <code>30</code> a více - podle prohlížeče):
-        <br> - Doba, za kterou se nabídka zavře, pokud uživatel nepohybuje myší směrem k ní, pokud se nachází uvnitř navigace.
-        <br> - Typ: <code>Number</code>
+        <code>insideTimeout</code> (default: <code>30</code>):
+        <br> - The time at which the submenu will be closed, if the user is not moving the mouse towards it, if the mouse is inside the navigation.
+        <br> - Type: <code>Number</code>
     </li>
 
     <li>
-        <code>outsideTimeout</code> (výchozí: <code>400</code>):
-        <br> - Doba, za kterou se navigace zavře, pokud uživatel nepohybuje myší směrem k nabídce, pokud se nachází mimo navigaci.
-        <br> - Typ: <code>Number</code>
+        <code>outsideTimeout</code> (default: <code>400</code>):
+        <br> - The time at which the navigation will be closed, if the user is not moving the mouse towards it, if the mouse is outside the navigation.
+        <br> - Type: <code>Number</code>
     </li>
 
     <li>
-        <code>surroundingTimeout</code> (výchozí: <code>600</code>):
-        <br> - Po uplynutí zadané doby, pokud je myš mimo zónu považovanou za směřující k nabíce a zároveň uvnitř <code>surroundingZone</code>, se navigace zavře.
-        <br> - Typ: <code>Number</code>
+        <code>surroundingTimeout</code> (default: <code>600</code>):
+        <br> - The time at which the navigation will be closed, if the user is not moving the mouse towards it, if the mouse hits a <code>surroundingZone</code>.
+
+        <br> - Type: <code>Number</code>
     </li>
 
     <li>
         <code>isFadedOut</code>:
-        <br> - Funkce pro zjištění, jestli je nabídka uzavřená. Důležité pro správné fungování CSS Transitions. Výchozí funkce zjišťuje, jestli došlo k ukončení přechodu u vlastnosti <code>visibility</code>.
-        <br> - Parametry:
+        <br> - Function to determine whether a currently closing submenu is closed. (It's called on <code>transitionend</code>.) Important for the proper functioning of CSS Transitions. The default function detects if the <code>transitionend</code> event was triggered by <code>visibility</code> property.
+        <br> - Parameters:
         <br>
         <ul>
-            <li><code>jQuery</code> - element nabídky</li>
+            <li><code>jQuery</code> - element of the submenu</li>
             <li><code>TransitionEvent</code></li>
-            <li><code>Function</code> - callback oznamující zavření nabídky, který může být zavolán později.</li>
+            <li><code>Function</code> - callback notifying that the submenu was closed, which can be called later</li>
         </ul>
-        - Funkce musí vrátit <code>false</code>, pokud nedošlo k uzavření nabídky. V případě, že ano, pak <code>true</code>.
-        <br> - Při používání přechodů výrazně doporučuji používat vzor použitý výše (nabídka se zobrazuje/skrývá pomocí <code>visibility</code>, která je nastavená i v <code>transition</code> se spožděním, a třída <code>UXN__item--opened</code> odstraňuje <code>visibility</code> z <code>transition</code>.), protože <code>TransitionEvent</code> při rychlém přepínání nemusí nastat (v případě <code>visibility</code> ale funguje pokaždé) nebo se může zachytit ještě předcházející událost. - Typ: <code>Function &lt;= boolean</code>
+        <br> - The function must return <code>false</code>, if the submenu was not closed. In case it was, then <code>true</code>.
+        <br> - When using transitions, it's strongly recommended to use the pattern used above (a submenu is opened/closed by <code>visibility</code>, which is set in the <code>transition</code> property with a delay and a class <code>UXN__item--opened</code> removes the <code>visitility</code> from the <code>transition</code>), because <code>TransitionEvent</code> may not be triggered if the submenu is switched fast (but in case of <code>visibility</code> it works every time) or the <code>TransitionEvent</code> may be captured from a previous event.
+        <br> - Type: <code>Function &lt;= Boolean</code>
     </li>
 
     <li>
-        <code>onInit</code> (výchozí: <code>null</code>):
-        <br> - Funkce se zavolá na konci inicializace.
-        <br> - Typ: <code>Function</code>
+        <code>onInit</code> (default: <code>null</code>):
+        <br> - Function is called at the end of initialization.
+        <br> - Type: <code>Function</code>
     </li>
 
     <li>
-        <code>onSubnavChange</code> (výchozí: <code>null</code>):
-        <br> - Funkce se zavolá při přejetí na jinou nabídku.
-        <br> - Parametry:
+        <code>onSubnavChange</code> (default: <code>null</code>):
+        <br> - Function is called when the mouse is moved to a different submenu.
+        <br> - Parameters:
         <br>
         <ul>
-            <li><code>jQuery</code> - element aktuální nabídky</li>
+            <li><code>jQuery</code> - element with the current submenu</li>
         </ul>
 
-        - Typ: <code>Function</code>
+        <br> - Type: <code>Function</code>
     </li>
 
     <li>
-        <code>onOpen</code> (výchozí: <code>null</code>):
-        <br> - Funkce se zavolá před otevřením nabídky. V případě, že funkce vrátí <code>false</code>, nabídka se neotevře. Funkce může být použita pro JavaScriptové animace.
-        <br> - Parametry:
-        <br>
+        <code>onOpen</code> (default: <code>null</code>):
+        <br> - Function is called before a submenu is opened. If the function returns <code>false</code>, the submenu won't be opened.
+        <br> - Function can be used for JavaScipt animations. (See the demo <a href="http://michaljerabek.github.io/UXN#5">#5</a>.)
+        <br> - Parameters:
         <ul>
-            <li><code>jQuery</code> - element nabídky</li>
-            <li><code>jQuery</code> - element položky.</li>
-            <li><code>jQuery</code> - element otevíracího prvku</li>
+            <li><code>jQuery</code> - element with the submenu</li>
+            <li><code>jQuery</code> - element with the corresponding item</li>
+            <li><code>jQuery</code> - the corresponding opening element</li>
         </ul>
 
-        - Typ: <code>Function [&lt;= boolean]</code>
+        <br> - Type: <code>Function [&lt;= Boolean]</code>
     </li>
 
     <li>
-        <code>onClose</code> (výchozí: <code>null</code>):
-        <br> - Funkce se zavolá před zavřením nabídky. V případě, že funkce vrátí <code>false</code>, nabídka se nezavře.
-        <br> - Funkce může být použita pro JavaScriptové animace. V takovém případě, je potřeba nastavit vlastnost <code>fading</code> na <code>UXN.FADING_TYPE.JS</code> a po skončení animace, zavolat callback (čtvrtý parametr) a odstranit z atributu <code>style</code> vlastnosti[1], které odstraňují element z dokumentu (<code>display</code>). Třída <code>UXN__item--opened</code> musí otevírat nabídku i přesto, že je to zajištěno JS[2]. Viz demo <a href="http://michaljerabek.github.io/UXN#5">#5</a>. (*1 a *2 platí, pokud se používá nastavování pozic.)
-        <br> - Parametry:
+        <code>onClose</code> (default: <code>null</code>):
+        <br> - Function is called before a submenu is closed. If the function returns <code>false</code>, the submenu won't be closed.
+        <br> - Function can be used for JavaScipt animations. In that case it's necessary to set the property <code>fading</code> to <code>UXN.FADING_TYPE.JS</code> and after the animation ends call the callback function and remove from the <code>style</code> attribute properties[1] that removes (not literally) the submenu from the document (most likely a <code>display</code> property). The <code>UXN__item--opened</code> class must open the submenu[2], although this is done using JS. See the demo <a href="http://michaljerabek.github.io/UXN#5">#5</a>. (*1 and *2 is true when using the position adjusting feature.)
+        <br> - Parameters:
         <br>
         <ul>
-            <li><code>jQuery</code> - element nabídky</li>
-            <li><code>jQuery</code> - element položky.</li>
-            <li><code>jQuery</code> - element otevíracího prvku</li>
-            <li><code>Function</code> - callback oznamující zavření nabídky po skončení animace.</li>
+            <li><code>jQuery</code> - element with the submenu</li>
+            <li><code>jQuery</code> - element with the corresponding item</li>
+            <li><code>jQuery</code> - the corresponding opening element</li>
+            <li><code>Function</code> - callback notifying the end of the animation (the submenu is closed)</li>
         </ul>
 
-        - Typ: <code>Function [&lt;= boolean]</code>
+        - Type: <code>Function [&lt;= Boolean]</code>
     </li>
 
     <li>
