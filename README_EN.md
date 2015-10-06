@@ -582,66 +582,66 @@ var mainNav = new UXN({
     </li>
 
     <li>
-        <code>waitForFading</code> (výchozí: <code>false</code>):
-        <br> - Ve výchozím nastavení je možné používat jen jednu instanci UXN. Díky tomu, v případě že procházíte navigací a přejedete myší přes jinou navigaci UXN, se tato navigace neotevře. Vlastnost <code>waitForFading</code> určuje, že se může další navigace otevřít až po té, co všechny nabídky kompletně zavřou (dokončí se přechody [transitions] nebo animace). Nastavením na <code>true</code> můžete předejít případnému překrývání nabídek.
-        <br> - Typ: <code>Boolean</code>
+        <code>waitForFading</code> (default: <code>false</code>):
+        <br> - By default, it is possible to use (browsing) only one instance. Thanks to this, if the user is browsing a navigation and hover over another navigation (UXN instance), this navigation won't be opened. The <code>waitForFading</code> property sets, whether another navigation should be openable until after all animations/transitions were completed.
+        <br> - Type: <code>Boolean</code>
     </li>
 
     <li>
-        <code>setPositions</code> (výchozí: <code>true</code>):
-        <br> - Zapíná nastavování pozic nabídek, aby směřovaly do okna (stránky, elementu).
-        <br> - Typ: <code>Boolean</code>
+        <code>setPositions</code> (default: <code>true</code>):
+        <br> - Turn on position adjusting of submenus to fit the browser window (page, element);
+        <br> - Type: <code>Boolean</code>
     </li>
 
     <li>
-        <code>setPositionsOnReset</code> (výchozí: <code>true</code>):
-        <br> - Pozice se budou nastavovat i po skrolování.
-        <br> - Typ: <code>Boolean</code>
+        <code>setPositionsOnReset</code> (default: <code>true</code>):
+        <br> - Positions will be reset even after scrolling.
+        <br> - Type: <code>Boolean</code>
     </li>
 
     <li>
-        <code>setPositionsOnDeactivation</code> (výchozí: <code>true</code>):
-        <br> - Pozice se přenastaví i po zavření navigace.
-        <br> - Typ: <code>Boolean</code>
+        <code>setPositionsOnDeactivation</code> (default: <code>true</code>):
+        <br> - Positions will be reset even after the navigation is closed.
+        <br> - Type: <code>Boolean</code>
     </li>
 
     <li>
-        <code>setPositionsOnElement</code> (výchozí: <code>false</code>):
-        <br> - Pozice se budou nastavovat i po změně velikosti stránky nebo elementu nastaveného v <code>positionBase</code>a <code>firstLevelPositionBase</code>.
-        <br> - Typ: <code>Boolean</code>
+        <code>setPositionsOnElement</code> (default: <code>false</code>):
+        <br> - Positions will be reset even after the size of the page or the element set in <code>positionBase</code> or <code>firstLevelPositionBase</code> is changed.
+        <br> - Type: <code>Boolean</code>
     </li>
 
     <li>
-        <code>positionSkipOnFirstLevel</code> (výchozí: <code>true</code>):
-        <br> - Při nastavování pozic budou ignorovány první podnabídky.
-        <br> - Typ: <code>Boolean</code>
+        <code>positionSkipOnFirstLevel</code> (default: <code>true</code>):
+        <br> - Submenus at the first level won't be positioned.
+        <br> - Type: <code>Boolean</code>
     </li>
 
     <li>
-        <code>positionBase</code> (výchozí: <code>UXN.POSITION_BASE.WINDOW</code>):
-        <br> - Určuje, jestli se mají pozice nabídek nastavovat podle okna prohlížeče, stránky (<code>&lt;html&gt;</code>) nebo konkrétního elementu.
-        <br> - Možnosti: <code>UXN.POSITION_BASE.WINDOW</code> | <code>UXN.POSITION_BASE.PAGE</code>
-        <br> - Typ: <code>UXN.POSITION_BASE</code> / <code>jQuery</code> / <code>HTMLElement</code>
+        <code>positionBase</code> (default: <code>UXN.POSITION_BASE.WINDOW</code>):
+        <br> - Sets, whether the positions should be set based on the browser window, the page (<code>&lt;html&gt;</code>) or a specific element.
+        <br> - Options: <code>UXN.POSITION_BASE.WINDOW</code> | <code>UXN.POSITION_BASE.PAGE</code>
+        <br> - Type: <code>UXN.POSITION_BASE</code> / <code>jQuery</code> / <code>HTMLElement</code>
     </li>
 
     <li>
-        <code>firstLevelPositionBase</code> (výchozí: <code>UXN.POSITION_BASE.WINDOW</code>):
-        <br> - Určuje, jestli se mají pozice první úrovně nabídek nastavovat podle okna prohlížeče, stránky (<code>&lt;html&gt;</code>) nebo konkrétního elementu.
-        <br> - Není-li specifikováno v nastavovacím objektu (<code>options</code>) jinak, <code>fristLevelPositionsFromCenter</code> se nastaví na <code>true</code> a <code>positionSkipOnFirstLevel</code> na <code>false</code>.
-        <br> - Možnosti: <code>UXN.POSITION_BASE.WINDOW</code> | <code>UXN.POSITION_BASE.PAGE</code>
-        <br> - Typ: <code>UXN.POSITION_BASE</code> / <code>jQuery</code> / <code>HTMLElement</code>
+        <code>firstLevelPositionBase</code> (default: <code>UXN.POSITION_BASE.WINDOW</code>):
+        <br> - Sets, whether the positions at the first level should be set based on the browser window, the page (<code>&lt;html&gt;</code>) or a specific element.
+        <br> - If this option is set and it is not specified in the setting object otherwise, <code>fristLevelPositionsFromCenter</code> is set to <code>true</code> and <code>positionSkipOnFirstLevel</code> to <code>false</code>.
+        <br> - Options: <code>UXN.POSITION_BASE.WINDOW</code> | <code>UXN.POSITION_BASE.PAGE</code>
+        <br> - Type: <code>UXN.POSITION_BASE</code> / <code>jQuery</code> / <code>HTMLElement</code>
     </li>
 
     <li id="firstLevelPositionsFromCenter">
-        <code>firstLevelPositionsFromCenter</code> (výchozí: <code>false</code>):
-        <br> - Pozice na první úrovni podnabídek se nastaví tak, aby směřovaly do většího prostoru (podle umístění položek na stránce). Ostatní nabídky přejímají nastavení rodičovských nabídek, pokud je to možné. Vhodné pro nabídky, které jsou uprostřed stránky.
-        <br> - Typ: <code>Boolean</code>
+        <code>firstLevelPositionsFromCenter</code> (default: <code>false</code>):
+        <br> - Position at the first level will be set to be directed to a larger space (based on the postions of items). The following submenus will follow positions of its parent submenus, if possible.
+        <br> - Type: <code>Boolean</code>
     </li>
 
     <li>
-        <code>positionOffset</code> (výchozí: <code>10</code>):
-        <br> - Prostor v pixelech, který má být kolem nabídek od hran <code>positionBase</code>.
-        <br> - Typ: <code>Number</code>
+        <code>positionOffset</code> (default: <code>10</code>):
+        <br> - Space (in px) that should be around the edges of <code>positionBase</code>.
+        <br> - Type: <code>Number</code>
     </li>
 
     <!--
@@ -663,14 +663,14 @@ var mainNav = new UXN({
 -->
 
     <li>
-        <code>debug</code> (výchozí: <code>false</code>):
-        <br> - Aktivuje zobrazování testovaných zón pro zjištění, jestli uživatel směřuje k nabídce, a přidávání tříd. Není k dispozici v minifikované verzi. (Doporučuji testovat v Chromu, Opeře nebo ve Firefoxu. Nelze vyloučit nesprávnou funkčnost kvůli neznámenu nastavení CSS.)
-        <br> - Typ: <code>Boolean</code>
+        <code>debug</code> (default: <code>false</code>):
+        <br> - Turns on displaying of tested zones used to determine whether the mouse is moving towards a submenu, and added classes. Not available in minified version. (I recommend to test it in Chrome, Opera or Firefox. Correct functioning can not be guaranteed due to the unknown CSS.)
+        <br> - Type: <code>Boolean</code>
     </li>
 
 </ul>
 
-<h2>Globální nastavení</h2>
+<h2>Global Settings</h2>
 
 <ul>
 
