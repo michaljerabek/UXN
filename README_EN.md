@@ -369,7 +369,7 @@ var mainNav = new UXN({
 
     <li>
         <code>fading</code> (default: <code>UXN.FADING_TYPE.NONE</code>):
-        <br> - Sets, whether the navigation uses CSS Transitions, CSS Animations or JavaScript animations.
+        <br> - Sets whether the navigation uses CSS Transitions, CSS Animations or JavaScript animations.
         <br> - Options: <code>UXN.FADING_TYPE.TRANSITION</code> |
         <code>UXN.FADING_TYPE.ANIMATION</code> |
         <code>UXN.FADING_TYPE.JS</code> |
@@ -379,20 +379,19 @@ var mainNav = new UXN({
 
     <li>
         <code>animation</code> (default: <code>"UXN-hide"</code>):
-        <br> - Název animace (nebo pole názvů), která zavírá nabídku.
         <br> - Name of the animation (or array with names) used for closing a submenu.
         <br> - Type: <code>String</code> / <code>Array</code>
     </li>
 
     <li>
         <code>delayHide</code> (default: <code>false</code>):
-        <br> - Sets, whether an opened submenu should be closed immediately after the mouse leaves the item or just before another submenu is opened (or the mouse is not moving for an <code>openTimeout</code>).
+        <br> - Sets whether an opened submenu should be closed immediately after the mouse leaves the item or just before another submenu is opened (or the mouse is not moving for an <code>openTimeout</code>).
         <br> - Type: <code>Boolean</code>
     </li>
 
     <li>
         <code>autoHide</code> (default: <code>true</code>):
-        <br> - Sets, if in the case, that the mouse is stopped outside the navigation, the navigation should be automatically closed after an <code>outsideTimeout</code>.
+        <br> - Sets whether in the case, that the mouse is stopped outside the navigation, the navigation should be automatically closed after an <code>outsideTimeout</code>.
         <br> - Type: <code>Boolean</code>
     </li>
 
@@ -410,7 +409,7 @@ var mainNav = new UXN({
 
     <li>
         <code>hideFollowing</code> (default: <code>true</code>):
-        <br> - Sets, if the submenus following a submenu the mouse is over should be immediately closed even if the <code>insideTimeout</code> timer did not elapse. (Applicable if the user is browsing the navigation [moving the mouse] backwards.) If the <code>insideTimeout</code> is set to a longer time and <code>hideFollowing</code> to <code>false</code>, then the user may return back, if he/she realizes, that the searched item is inside already opened submenu (several levels down), but he/she had moved back into a different submenu (several levels up).
+        <br> - Sets whether the submenus following a submenu the mouse is over should be immediately closed even if the <code>insideTimeout</code> timer did not elapse. (Applicable if the user is browsing the navigation [moving the mouse] backwards.) If the <code>insideTimeout</code> is set to a longer time and <code>hideFollowing</code> to <code>false</code>, then the user may return back, if he/she realizes, that the searched item is inside already opened submenu (several levels down), but he/she had moved back into a different submenu (several levels up).
         <br> - Type: <code>Boolean</code>
     </li>
 
@@ -428,14 +427,14 @@ var mainNav = new UXN({
 
     <li id="allowSliding">
         <code>allowSliding</code> (default: <code>true</code>):
-        <br> - Sets, if the user does not have to stop the mouse over an item for a time set by <code>openTimeout</code> before a submenu is opened. This feature takes into account the layout of the current submenu. In case that <code>ignoreLayoutOnSliding</code> is set to <code>false</code> (default), it is necessary to add a class specified in <code>horizontal</code> to submenus, which are horizontal. (The default behavior can be overridden using classes.)
+        <br> - Sets whether the user does not have to stop the mouse over an item for a time set by <code>openTimeout</code> before a submenu is opened. This feature takes into account the layout of the current submenu. In case that <code>ignoreLayoutOnSliding</code> is set to <code>false</code> (default), it is necessary to add a class specified in <code>horizontal</code> to submenus, which are horizontal. (The default behavior can be overridden using classes.)
         <br> - If the adjusting of positions is used, opening will be delayed a little more.
         <br> - Type: <code>Boolean</code>
     </li>
 
     <li>
         <code>allowSlidingOnFirstLevel</code> (default: <code>false</code>):
-        <br> - Sets, if <code>allowSliding</code> is used even for the first level.
+        <br> - Sets whether <code>allowSliding</code> is used even for the first level.
         <br> - Type: <code>Boolean</code>
     </li>
 
@@ -459,13 +458,13 @@ var mainNav = new UXN({
 
     <li>
         <code>preventClickOnTouch</code> (default: <code>true</code>):
-        <br> - Sets, whether click events (<code>onclick</code>) should be blocked (<code>preventDefault</code>), if the user taps (<code>ontouchend</code>) on an item with a submenu (and without an opening element).
+        <br> - Sets whether click events (<code>onclick</code>) should be blocked (<code>preventDefault</code>), if the user taps (<code>ontouchend</code>) on an item with a submenu (and without an opening element).
         <br> - Type: <code>Boolean</code>
     </li>
 
     <li>
         <code>closeOnClick</code> (default: <code>false</code>):
-        <br> - Sets, whether the navigation should be closed after the user clicks (anywhere).
+        <br> - Sets whether the navigation should be closed after the user clicks (anywhere).
         <br> - Type: <code>Boolean</code>
     </li>
 
@@ -477,19 +476,19 @@ var mainNav = new UXN({
 
     <li>
         <code>minZoneExt</code> (default: <code>25</code>):
-        <br> - Sets s minimum extention of the zone, which is considered as "moving towards the menu". (The size of the extension increases with increasing distance from the mouse to the navigation. For an example, see the <a href="http://michaljerabek.github.io/UXN#2">demo</a> and turn on debug mode.)
+        <br> - Sets a minimum extention of the zone, which is considered as "moving towards the menu". (The size of the extension increases with increasing distance from the mouse to the navigation. For an example, see the <a href="http://michaljerabek.github.io/UXN#2">demo</a> and turn on debug mode.)
         <br> - Type: <code>Number</code>
     </li>
 
     <li>
         <code>maxZoneExt</code> (default: <code>250</code>):
-        <br> - Sets s maximum extention of the zone, which is considered as "moving towards the menu". (The size of the extension increases with increasing distance from the mouse to the navigation. For an example, see the <a href="http://michaljerabek.github.io/UXN#2">demo</a> and turn on debug mode.)
+        <br> - Sets a maximum extention of the zone, which is considered as "moving towards the menu". (The size of the extension increases with increasing distance from the mouse to the navigation. For an example, see the <a href="http://michaljerabek.github.io/UXN#2">demo</a> and turn on debug mode.)
         <br> - Type: <code>Number</code>
     </li>
 
     <li>
         <code>zoneExtOffset</code> (default: <code>0</code>):
-        <br> - Sets s fixed extention (reduction) of the zone, which is considered as "moving towards the menu". (The value is added to the result.)
+        <br> - Sets a fixed extention (reduction) of the zone, which is considered as "moving towards the menu". (The value is added to the result.)
         <br> - Type: <code>Number</code>
     </li>
 
@@ -619,14 +618,14 @@ var mainNav = new UXN({
 
     <li>
         <code>positionBase</code> (default: <code>UXN.POSITION_BASE.WINDOW</code>):
-        <br> - Sets, whether the positions should be set based on the browser window, the page (<code>&lt;html&gt;</code>) or a specific element.
+        <br> - Sets whether the positions should be set based on the browser window, the page (<code>&lt;html&gt;</code>) or a specific element.
         <br> - Options: <code>UXN.POSITION_BASE.WINDOW</code> | <code>UXN.POSITION_BASE.PAGE</code>
         <br> - Type: <code>UXN.POSITION_BASE</code> / <code>jQuery</code> / <code>HTMLElement</code>
     </li>
 
     <li>
         <code>firstLevelPositionBase</code> (default: <code>UXN.POSITION_BASE.WINDOW</code>):
-        <br> - Sets, whether the positions at the first level should be set based on the browser window, the page (<code>&lt;html&gt;</code>) or a specific element.
+        <br> - Sets whether the positions at the first level should be set based on the browser window, the page (<code>&lt;html&gt;</code>) or a specific element.
         <br> - If this option is set and it is not specified in the setting object otherwise, <code>fristLevelPositionsFromCenter</code> is set to <code>true</code> and <code>positionSkipOnFirstLevel</code> to <code>false</code>.
         <br> - Options: <code>UXN.POSITION_BASE.WINDOW</code> | <code>UXN.POSITION_BASE.PAGE</code>
         <br> - Type: <code>UXN.POSITION_BASE</code> / <code>jQuery</code> / <code>HTMLElement</code>
@@ -675,139 +674,134 @@ var mainNav = new UXN({
 <ul>
 
     <li>
-        <code>UXN.VENDOR_PREFIXES</code> (výchozí: <code>false</code>):
-        <br> - Nastavuje, jestli přechody (transitions) nebo animace používají CSS prefixy (<code>-webkit-</code>, <code>-moz-</code>, ...).
-        <br> - Typ: <code>Boolean</code>
+        <code>UXN.VENDOR_PREFIXES</code> (default: <code>false</code>):
+        <br> - Sets whether transitions or animations use prefixes (<code>-webkit-</code>, <code>-moz-</code>, ...).
+        <br> - Type: <code>Boolean</code>
     </li>
 
     <li>
-        <code>UXN.MULTIPLE_INSTANCES</code> (výchozí: <code>false</code>):
-        <br> - Nastavuje, jestli je možné používat více instancí najednou.
-        <br> - Typ: <code>Boolean</code>
+        <code>UXN.MULTIPLE_INSTANCES</code> (default: <code>false</code>):
+        <br> - Sets whether it is possible to use multiple instances simultaneously.
+        <br> - Type: <code>Boolean</code>
     </li>
 
     <li>
-        <code>UXN.SKIP_MOUSE_EVENTS</code> (výchozí: <code>0</code>):
-        <br> - Určuje, kolik událostí <code>onmousemove</code> se má přeskočit. V případě použití delšího času <code>insideTimeout</code> můžete prohlížeči ušetřit trochu práce.
-        <br> - Typ: <code>Number</code>
+        <code>UXN.SKIP_MOUSE_EVENTS</code> (default: <code>0</code>):
+        <br> - Sets how many <code>onmousemove</code> events should be skipped. In case that <code>insideTimeout</code> is set to a longer time, you can save a little work for the browser.
+        <br> - Type: <code>Number</code>
     </li>
 
     <li>
-        <code>UXN.DEFAULTS</code> (výchozí: <code>{...}</code>):
-        <br> - Výchozí nastavení.
-        <br> - Typ: <code>Object</code>
+        <code>UXN.DEFAULTS</code> (default: <code>{...}</code>):
+        <br> - Default settings.
+        <br> - Type: <code>Object</code>
     </li>
 
     <li>
-        <code>UXN.PREFIX</code> (výchozí: <code>"UXN"</code>):
-        <br> - Prefix nastavovaných výchozích tříd a dat přiřazených k elementům.
-        <br> - Typ: <code>String</code>
+        <code>UXN.PREFIX</code> (default: <code>"UXN"</code>):
+        <br> - Prefix added to the default classes and to data assigned to elements.
+        <br> - Type: <code>String</code>
     </li>
 
     <li>
-        <code>UXN.EVENT_NS</code> (výchozí: <code>"UXN"</code>):
-        <br> - Jmenný prostor (namespace) událostí.
-        <br> - Typ: <code>String</code>
+        <code>UXN.EVENT_NS</code> (default: <code>"UXN"</code>):
+        <br> - Namespace of events.
+        <br> - Type: <code>String</code>
     </li>
 
     <li>
-        <code>UXN.BEM.EL</code> (výchozí: <code>"__"</code>):
-        <br> - Oddělovač bloku a elementu ve výchozích třídách.
-        <br> - Typ: <code>String</code>
+        <code>UXN.BEM.EL</code> (default: <code>"__"</code>):
+        <br> - A separator of blocks and elements in the default classes.
+        <br> - Type: <code>String</code>
     </li>
 
     <li>
-        <code>UXN.BEM.MOD</code> (výchozí: <code>"--"</code>):
-        <br> - Oddělovač elementu a modifikátoru ve výchozích třídách.
-        <br> - Typ: <code>String</code>
+        <code>UXN.BEM.MOD</code> (default: <code>"--"</code>):
+        <br> - A separator of elements and modifiers in the default classes.
+        <br> - Type: <code>String</code>
     </li>
 
     <li>
-        <code>UXN.POSITIONS.IDS.STYLE</code> (výchozí: <code>"UXN-positioning__reset-start"</code>):
-        <br> - <code>id</code> elementu <code>style</code> v elementu <code>head</code> používaný pro resetování pozic nabídek.
-        <br> - Typ: <code>String</code>
+        <code>UXN.POSITIONS.IDS.STYLE</code> (default: <code>"UXN-positioning__style"</code>):
+        <br> - <code>id</code> of <code>&lt;style&gt;</code> inside <code>&lt;head&gt;</code> used for adjusting positions of submenus.
+        <br> - Type: <code>String</code>
     </li>
 
     <li>
-        <code>UXN.POSITIONS.CLASSES.RESET</code> (výchozí: <code>"UXN-positioning__style" </code>):
-        <br> - Třída použitá pro resetování pozic nabídek.
-        <br> - Typ: <code>String</code>
+        <code>UXN.POSITIONS.CLASSES.RESET</code> (default: <code>"UXN-positioning__reset-start"</code>):
+        <br> - Class used for adjusting positions of submenus.
+        <br> - Type: <code>String</code>
     </li>
 
     <li>
         <code>UXN.DEBUG</code>:
-        <br> - Nastavení debug módu.
+        <br> - Settings of debug mode.
     </li>
 
 </ul>
 
-<h2>Metody</h2>
+<h2>Mothods</h2>
 
 <ul>
 
     <li>
         <code>destroy()</code>:
-        <br> - Odstraní instanci.
+        <br> - Destroys an instance.
         <br>
     </li>
 
     <li>
         <code>refresh([options])</code>:
-        <br> - Obnoví instanci.
-        <br> - Parametry:
-        <br>
+        <br> - Refreshes an instance.
+        <br> - Parameters:
         <ul>
-            <li><code>Object</code> - nové nastavení</li>
+            <li><code>Object</code> - new options</li>
         </ul>
     </li>
 
     <li>
         <code>open(subnav [, notParents]) &lt;= <code>Boolean</code></code>:
-        <br> - Otevře nabídku. V případě otevření (nenastala chyba) vrací <code>true</code>, jinak <code>false</code>.
-        <br> - Parametry:
+        <br> - Opens a submenu. In case the submenu is opened (no error has occurred) returns <code>true</code>, otherwise <code>false</code>.
+        <br> - Parameters:
         <br>
         <ul>
-            <li><code>String</code> / <code>HTMLElement</code> / <code>jQuery</code> - nabídka, která se má otevřít.</li>
-            <li><code>Boolean</code> - neotevírat nadřazené nabídky.</li>
+            <li><code>String</code> / <code>HTMLElement</code> / <code>jQuery</code> - submenu to be opened</li>
+            <li><code>Boolean</code> - do not open parent submenus</li>
         </ul>
     </li>
 
     <li>
         <code>close([subnav, preserveFirstLevel]) &lt;= <code>Boolean</code></code>:
-        <br> - Zavře nabídku. V případě zavření vrací <code>true</code>, jinak <code>false</code>. Pokud je metoda volána bez parametrů, zavře se celá navigace.
-        <br> - Parametry:
-        <br>
+        <br> - Closes a submenu. In case the submenu is closed (no error has occurred) returns <code>true</code>, otherwise <code>false</code>. If the method is called without any parameters, it will close the whole navigation.
+        <br> - Parameters:
         <ul>
-            <li><code>String</code> / <code>HTMLElement</code> / <code>jQuery</code> - nabídka, která se má zavřít.</li>
-            <li><code>Boolean</code> - v případě zapnutí <code>doNotCloseFirstLevel</code> neskryje nabídku první úrovně.</li>
+            <li><code>String</code> / <code>HTMLElement</code> / <code>jQuery</code> - submenu to be closed</li>
+            <li><code>Boolean</code> - in case that <code>doNotCloseFirstLevel</code> is set to <code>true</code>, submenus at the first level won't be closed</li>
         </ul>
     </li>
 
     <li>
         <code>sleep([touchEvents])</code>:
-        <br> - Instance přestane reagovat na události.
-        <br> - Parametry:
-        <br>
+        <br> - Instance stops responding to events.
+        <br> - Parameters:
         <ul>
-            <li><code>Boolean</code> - vypnou se i dotykové události.</li>
+            <li><code>Boolean</code> - stop responding even to touch events</li>
         </ul>
     </li>
 
     <li>
         <code>wake()</code>:
-        <br> - Instance opět začne reagovat na události.
-        <br>
+        <br> - Instances again begins to respond to events.
     </li>
 
     <li>
         <code>toggleDebug()</code>:
-        <br> - Vypne/zapne debug mód. (Není k dispozici v minifikované verzi.)
-        <br>
+        <br> - Turns on/off debug mode. (Not available in minified version.)
     </li>
 
     <li>
-        - Spousta dalších samovysvětlujících metod pro procházení navigací. Doporučuji prostudovat ve vývojářských nástrojích v Chromu.
+        - Plenty of other self-explanatory methods for browsing a navigation. I recommend take a look in the developer tools in Chrome.
     </li>
 </ul>
 
-<p>Upozornění: Nativní metody jako <code>querySelector</code> a <code>querySelectorAll</code> nevybírají vždy ty samé elementy jako jQuery (a nepoužívají úplně stejné selektory). Používejte proto jenom selektory, které vždy vyberou to samé. Více info <a href="https://www.lvh.io/posts/queryselectorall-from-an-element-probably-doesnt-do-what-you-think-it-does.html">zde</a>.</p>
+<p>Warning: Native methods like <code>querySelector</code> or <code>querySelectorAll</code> do not always select the same elements as jQuery (and do not use exactly the same selectors). Therefore use only the selectors that will always select the same elements. More information <a href="https://www.lvh.io/posts/queryselectorall-from-an-element-probably-doesnt-do-what-you-think-it-does.html">here</a>.</p>
