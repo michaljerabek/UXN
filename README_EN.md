@@ -1,6 +1,6 @@
 <h1>UXN (1.0 Beta) - Documentation</h1>
 
-<p>UXN allows you to create user-friendly navigations. It tracks, if the mouse is moving to any menu, and if so, then the menu stays opened. As a result, the user need not to browse through the navigation like a robot and be moving the mouse at right angles (see the animation below).</p>
+<p>UXN is a tool for creating user-friendly navigations. It tracks, whether the mouse is moving towards some (sub)menu, and if so, then the menu stays opened. As a result, the user need not to browse through the navigation like a robot and be moving the mouse at right angles (see the animation below).</p>
 
 <p>The second function of UXN is adjusting positions of submenus into the browser window (page or element).</p>
 
@@ -30,11 +30,11 @@ var mainNav = new UXN({
     itemOpened: "custom-opened-class"
 });</pre>
 
-<p>The default selectors for the submenus and items are <code>ul</code> and <code>li</code>. These can be changed by <code>subnav</code> and <code>item</code> properties. It's important that these selctors do not select any other elements than elements of a submenu or an item.</p>
+<p>The default selectors for the submenus and items are <code>ul</code> and <code>li</code>. These can be changed by <code>subnav</code> and <code>item</code> properties. It's important that these selctors do not select any other elements than elements of submenus or items.</p>
 
 <p>Note: Do not use selectors like <code>#main-nav .subnav</code>, but only <code>.subnav</code>.</p>
 
-<p>Note: <code>nav</code> selector does not have to be an <code>id</code>, but must be unique.</p>
+<p>Note: <code>nav</code> selector does not have to be an <code>id</code>, but it must be unique.</p>
 
 <p>Note: The default value of the <code>nav</code> property is <code>#main-nav</code>. So if your navigation has the <code>id</code> <code>#main-nav</code>, you can use just <code>new UXN();</code>.</p>
 
@@ -103,7 +103,7 @@ var mainNav = new UXN({
 }        
 </pre>
 
-<h4>Použití s CSS Tranistions:</h4>
+<h4>Usage with CSS Tranistions:</h4>
 
 <pre>#main-nav li {
     position: relative;
@@ -152,12 +152,12 @@ var mainNav = new UXN({
 <ul>
     <li>
         <code>UXN__item--has-subnav</code> (<code>itemHasSubnav</code>):
-        <br> - Item with submenu.
+        <br> - Item with a submenu.
     </li>
 
     <li>
         <code>UXN__opener--has-subnav</code> (<code>openerHasSubnav</code>):
-        <br> - Opening element with submenu.
+        <br> - Opening element with a submenu.
     </li>
 
     <li>
@@ -231,16 +231,16 @@ var mainNav = new UXN({
 
     <li>
         <code>UXN-sliding--vertical</code> (<code>slidingVertical</code>):
-        <br> - It allows custom control of opening submenus. In case that a submenu has a <code>UXN-sliding--vertical</code> class, the submenu is opened without having to stop the mouse, if mouse is moving vertically.
+        <br> - It allows custom control of opening submenus. In case that a submenu has a <code>UXN-sliding--vertical</code> class, the submenu is opened without having to stop the mouse, if the mouse is moving vertically.
     </li>
 
     <li>
         <code>UXN-sliding--horizontal</code> (<code>slidingHorizontal</code>):
-        <br> - It allows custom control of opening submenus. In case that a submenu has a <code>UXN-sliding--horizontal</code> class, the submenu is opened without having to stop the mouse, if mouse is moving horizontally.
+        <br> - It allows custom control of opening submenus. In case that a submenu has a <code>UXN-sliding--horizontal</code> class, the submenu is opened without having to stop the mouse, if the mouse is moving horizontally.
         </li>
 </ul>
 
-<p>Classes containing "fading" are important for the correct work of transitions and animations. They are mainly used to set the element to <code>overflow: visible;</code>, in order to its closing submenu would be visible.</p>
+<p>Classes containing "fading" are important for the correct work of transitions and animations. They are mainly used to set the element to <code>overflow: visible;</code>, in order to its closing (fading) submenu would be visible.</p>
 
 <h3>Other</h3>
 
@@ -268,13 +268,13 @@ var mainNav = new UXN({
 <p>Basic process is as follows:</p>
 
 <ol>
-    <li>Set styles for submenus to default direction. (For example: Submenus will be positioned down right)</li>
+    <li>Set styles for submenus to a default direction. (For example: Submenus will be positioned down right)</li>
     <li>Set styles to classes in the opposite direction. (For example <code>UXN__subnav--top</code> and <code>UXN__subnav--left</code>.)</li>
 </ol>
 
 <p>If a submenu fits into the window (page, element) and thus its position is not changed, the submenu will not have any class except in the case, that adjusting positions from the center is used. <a href="#firstLevelPositionsFromCenter">More info.</a></p>
 
-<p>If the positions are adjusted by the page (<code>&lt;html&gt;</code>) and the page is smaller then the browser window, the window is used instead.</p>
+<p>If the positions are adjusted  based on the page (<code>&lt;html&gt;</code>) and the page is smaller then the browser window, the window is used instead.</p>
 
 <p>If a submenu does not fit into the window (page, element) even in the changed position, direction down right is preferred.</p>
 
@@ -287,13 +287,13 @@ var mainNav = new UXN({
     positionBase: UXN.POSITION_BASE.PAGE // UXN.POSITION_BASE.WINDOW // $("#wrapper") // document.getElementById("wrapper")
 });</pre>
 
-<p>Classes used for adjusting positions</p>
+<h3>Classes Used for Adjusting Positions:</h3>
 
 <ul>
 
     <li>
         <code>UXN-position--skip</code> (<code>positionSkip</code>):
-        <br> - It may be set to submenus that should not be positioned. Typically, the first level of submenus. (May be set by code>positionSkipOnFirstLevel: true</code>, in this case, you don't have to add these classes.)
+        <br> - It may be set to submenus that should not be positioned. Typically, the first level of submenus. (May be set by <code>positionSkipOnFirstLevel: true</code>, in this case, you don't have to add these classes.)
     </li>
 
     <li>
@@ -318,10 +318,10 @@ var mainNav = new UXN({
         <code>UXN__opener--has--top</code> (<code>openerHasTop</code>) |
         <code>UXN__opener--has--bottom</code> (<code>openerHasBottom</code>):
         <br> - An opening element with a submenu in the corresponding direction.
-        </li>
+    </li>
 </ul>
 
-<p>Note: The process of adujsting positions causes delay before the corresponding submenu is opened. Some browsers (IE) may not respond for a few milliseconds.</p>
+<p>Note: The process of adujsting positions causes a delay before the corresponding submenu is opened. Some browsers (IE) may not respond for a few milliseconds.</p>
 
 <h2>Options</h2>
 
@@ -363,7 +363,7 @@ var mainNav = new UXN({
 
     <li>
         <code>autoSleep</code> (default: <code>true</code>):
-        <br> - The navigation stop responding to events, if it's outside the viewport (or inside an element with <code>display: none</code>).
+        <br> - The navigation stop responding to events, if it's outside the viewport<!-- (or inside an element with <code>display: none</code>)-->.
         <br> - Type: <code>Boolean</code>
     </li>
 
@@ -385,7 +385,7 @@ var mainNav = new UXN({
 
     <li>
         <code>delayHide</code> (default: <code>false</code>):
-        <br> - Sets whether an opened submenu should be closed immediately after the mouse leaves the item or just before another submenu is opened (or the mouse is not moving for an <code>openTimeout</code>).
+        <br> - Sets whether an opened submenu should be closed immediately after the mouse leaves the item or just before another submenu is opened (or the mouse is not moving for <code>openTimeout</code>).
         <br> - Type: <code>Boolean</code>
     </li>
 
@@ -397,7 +397,7 @@ var mainNav = new UXN({
 
     <li>
         <code>closeOnlyInLevel</code> (default: <code>false</code>):
-        <br> - It will only close the submenu, which is at the same level as the newly opened. This allows you to keep open the last submenu. See demo <a href="http://michaljerabek.github.io/UXN#6">#6</a>.
+        <br> - It will only close opened submenu, which is at the same level as the newly opened. This allows you to keep open the last submenu. See demo <a href="http://michaljerabek.github.io/UXN#6">#6</a>.
         <br> - Type: <code>Boolean</code>
     </li>
 
@@ -446,13 +446,13 @@ var mainNav = new UXN({
 
     <li>
         <code>slidingZone</code> (default: <code>75</code>):
-        <br> - Sets the percentage size of the zone (from the farther side of the cursor), in which the opening of submenus won't be delayed.
+        <br> - Sets a percentage size of a zone (from farther side of the cursor), in which the opening of submenus won't be delayed.
         <br> - Type: <code>Number</code>
     </li>
 
     <li>
         <code>openTimeout</code> (default: <code>30</code>):
-        <br> - Sets the time for which the user must stop the mouse over an item to open it.
+        <br> - Sets a time for which the user must stop the mouse over an item to open it.
         <br> - Type: <code>Number</code>
     </li>
 
@@ -476,37 +476,37 @@ var mainNav = new UXN({
 
     <li>
         <code>minZoneExt</code> (default: <code>25</code>):
-        <br> - Sets a minimum extention of the zone, which is considered as "moving towards the menu". (The size of the extension increases with increasing distance from the mouse to the navigation. For an example, see the <a href="http://michaljerabek.github.io/UXN#2">demo</a> and turn on debug mode.)
+        <br> - Sets a minimum extention of a zone, which is considered as "moving towards the menu". (The size of an extension increases with the increasing distance from the mouse to the navigation. For an example, see the <a href="http://michaljerabek.github.io/UXN#2">demo</a> and turn on debug mode.)
         <br> - Type: <code>Number</code>
     </li>
 
     <li>
         <code>maxZoneExt</code> (default: <code>250</code>):
-        <br> - Sets a maximum extention of the zone, which is considered as "moving towards the menu". (The size of the extension increases with increasing distance from the mouse to the navigation. For an example, see the <a href="http://michaljerabek.github.io/UXN#2">demo</a> and turn on debug mode.)
+        <br> - Sets a maximum extention of a zone, which is considered as "moving towards the menu". (The size of an extension increases with the increasing distance from the mouse to the navigation. For an example, see the <a href="http://michaljerabek.github.io/UXN#2">demo</a> and turn on debug mode.)
         <br> - Type: <code>Number</code>
     </li>
 
     <li>
         <code>zoneExtOffset</code> (default: <code>0</code>):
-        <br> - Sets a fixed extention (reduction) of the zone, which is considered as "moving towards the menu". (The value is added to the result.)
+        <br> - Sets a fixed extention (reduction) of a zone, which is considered as "moving towards the menu". (The value is added to the result.)
         <br> - Type: <code>Number</code>
     </li>
 
     <li>
         <code>surroundingZone</code> (default: <code>15</code>):
-        <br> - Size (in px) of a zone around a submenu to which the user may move the mouse and the navigation won't be immediately closed (but for the time set in <code>surroundingTimeout</code>).
+        <br> - Size (in px) of a zone around a submenu to which the user may move the mouse and the navigation won't be immediately closed (but for the time set in <code>surroundingTimeout</code> [if the mouse stops moving]).
         <br> - Type: <code>Number</code>
     </li>
 
     <li>
         <code>insideTimeout</code> (default: <code>30</code>):
-        <br> - The time at which the submenu will be closed, if the user is not moving the mouse towards it, if the mouse is inside the navigation.
+        <br> - The time at which a submenu will be closed, if the user is not moving the mouse towards it, if the mouse is inside the navigation.
         <br> - Type: <code>Number</code>
     </li>
 
     <li>
         <code>outsideTimeout</code> (default: <code>400</code>):
-        <br> - The time at which the navigation will be closed, if the user is not moving the mouse towards it, if the mouse is outside the navigation.
+        <br> - The time at which the navigation will be closed, if the user is not moving the mouse towards any submenu, if the mouse is outside the navigation.
         <br> - Type: <code>Number</code>
     </li>
 
@@ -540,7 +540,7 @@ var mainNav = new UXN({
 
     <li>
         <code>onSubnavChange</code> (default: <code>null</code>):
-        <br> - Function is called when the mouse is moved to a different submenu.
+        <br> - Function is called when the mouse is moved towards a different submenu.
         <br> - Parameters:
         <br>
         <ul>
@@ -567,14 +567,14 @@ var mainNav = new UXN({
     <li>
         <code>onClose</code> (default: <code>null</code>):
         <br> - Function is called before a submenu is closed. If the function returns <code>false</code>, the submenu won't be closed.
-        <br> - Function can be used for JavaScipt animations. In that case it's necessary to set the property <code>fading</code> to <code>UXN.FADING_TYPE.JS</code> and after the animation ends call the callback function and remove from the <code>style</code> attribute properties[1] that removes (not literally) the submenu from the document (most likely a <code>display</code> property). The <code>UXN__item--opened</code> class must open the submenu[2], although this is done using JS. See the demo <a href="http://michaljerabek.github.io/UXN#5">#5</a>. (*1 and *2 is true when using the position adjusting feature.)
+        <br> - Function can be used for JavaScipt animations. In that case it's necessary to set the property <code>fading</code> to <code>UXN.FADING_TYPE.JS</code> and after the animation ends call the callback function and remove from the <code>style</code> attribute properties[1] that removes (not literally) the submenu from the document (most likely a <code>display</code> property). The <code>UXN__item--opened</code> class must ensure opening of submenus[2], although this is done using JS. See the demo <a href="http://michaljerabek.github.io/UXN#5">#5</a>. (*1 and *2 is true when using the position adjusting feature.)
         <br> - Parameters:
         <br>
         <ul>
             <li><code>jQuery</code> - element with the submenu</li>
             <li><code>jQuery</code> - element with the corresponding item</li>
             <li><code>jQuery</code> - the corresponding opening element</li>
-            <li><code>Function</code> - callback notifying the end of the animation (the submenu is closed)</li>
+            <li><code>Function</code> - callback notifying the end of the animation (= the submenu is closed)</li>
         </ul>
 
         - Type: <code>Function [&lt;= Boolean]</code>
@@ -588,7 +588,7 @@ var mainNav = new UXN({
 
     <li>
         <code>setPositions</code> (default: <code>true</code>):
-        <br> - Turn on position adjusting of submenus to fit the browser window (page, element);
+        <br> - Turns on position adjusting of submenus to fit the browser window (page, element);
         <br> - Type: <code>Boolean</code>
     </li>
 
@@ -663,7 +663,7 @@ var mainNav = new UXN({
 
     <li>
         <code>debug</code> (default: <code>false</code>):
-        <br> - Turns on displaying of tested zones used to determine whether the mouse is moving towards a submenu, and added classes. Not available in minified version. (I recommend to test it in Chrome, Opera or Firefox. Correct functioning can not be guaranteed due to the unknown CSS.)
+        <br> - Turns on displaying of tested zones used to determine whether the mouse is moving towards a submenu, and displaying of added classes. Not available in minified version. (I recommend to test it in Chrome, Opera or Firefox. Correct functioning can not be guaranteed due to the unknown CSS.)
         <br> - Type: <code>Boolean</code>
     </li>
 
@@ -723,13 +723,13 @@ var mainNav = new UXN({
 
     <li>
         <code>UXN.POSITIONS.IDS.STYLE</code> (default: <code>"UXN-positioning__style"</code>):
-        <br> - <code>id</code> of <code>&lt;style&gt;</code> inside <code>&lt;head&gt;</code> used for adjusting positions of submenus.
+        <br> - <code>id</code> of <code>&lt;style&gt;</code> inside <code>&lt;head&gt;</code> used for adjusting positions.
         <br> - Type: <code>String</code>
     </li>
 
     <li>
         <code>UXN.POSITIONS.CLASSES.RESET</code> (default: <code>"UXN-positioning__reset-start"</code>):
-        <br> - Class used for adjusting positions of submenus.
+        <br> - Class used for adjusting positions.
         <br> - Type: <code>String</code>
     </li>
 
@@ -740,7 +740,7 @@ var mainNav = new UXN({
 
 </ul>
 
-<h2>Mothods</h2>
+<h2>Methods</h2>
 
 <ul>
 
