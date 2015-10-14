@@ -1,4 +1,4 @@
-<h1>UXN (1.0 Beta) - Documentation <small>(hopefully in English)</small></h1>
+<h1>UXN (1.0 Beta) - Documentation <small style="font-size: 16px">(hopefully in English)</small></h1>
 
 <p>UXN is a tool for creating user-friendly navigations. It tracks, whether the mouse is moving towards some (sub)menu, and if so, then the menu stays opened. As a result, the user need not to browse through the navigation like a robot and be moving the mouse at right angles (see the animation below).</p>
 
