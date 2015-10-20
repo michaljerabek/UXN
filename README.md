@@ -10,6 +10,8 @@
 
 <p>UXN uses native methods and APIs (<code>closest</code>, <code>matches</code>, <code>classList</code>, ...), if they are available to ensure maximum efficiency.</p>
 
+<p>Demo: <a href="http://michaljerabek.github.io/UXN#2">michaljerabek.github.io/UXN</a></p>
+
 <figure><img src="uxn-demo.gif" alt="UXN"></figure>
 
 <h2>Dependencies</h2>
