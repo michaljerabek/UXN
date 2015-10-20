@@ -1,4 +1,4 @@
-<h1>UXN (1.0 Beta) - Documentation</h1>
+<h1>UXN (1.0 Beta2) - Documentation</h1>
 
 <p>(hopefully in English)</p>
 
@@ -286,7 +286,7 @@ var mainNav = new UXN({
 
 <pre>var mainNav = new UXN({
     nav: "#main-nav",
-    positionBase: UXN.POSITION_BASE.PAGE // UXN.POSITION_BASE.WINDOW // $("#wrapper") // document.getElementById("wrapper")
+    positionBase: UXN.POSITIONS.BASE.PAGE // UXN.POSITIONS.BASE.WINDOW // $("#wrapper") // document.getElementById("wrapper")
 });</pre>
 
 <h3>Classes Used for Adjusting Positions:</h3>
@@ -618,24 +618,32 @@ var mainNav = new UXN({
     </li>
 
     <li>
-        <code>positionBase</code> (default: <code>UXN.POSITION_BASE.WINDOW</code>):
+        <code>positionBase</code> (default: <code>UXN.POSITIONS.BASE.WINDOW</code>):
         <br> - Sets whether the positions should be set based on the browser's window, the page (<code>&lt;html&gt;</code>) or a specific element.
-        <br> - Options: <code>UXN.POSITION_BASE.WINDOW</code> | <code>UXN.POSITION_BASE.PAGE</code>
-        <br> - Type: <code>UXN.POSITION_BASE</code> / <code>jQuery</code> / <code>HTMLElement</code>
+        <br> - Options: <code>UXN.POSITIONS.BASE.WINDOW</code> | <code>UXN.POSITIONS.BASE.PAGE</code>
+        <br> - Type: <code>UXN.POSITIONS.BASE</code> / <code>jQuery</code> / <code>HTMLElement</code>
     </li>
 
     <li>
-        <code>firstLevelPositionBase</code> (default: <code>UXN.POSITION_BASE.WINDOW</code>):
+        <code>firstLevelPositionBase</code> (default: <code>UXN.POSITIONS.BASE.WINDOW</code>):
         <br> - Sets whether the positions at the first level should be set based on the browser's window, the page (<code>&lt;html&gt;</code>) or a specific element.
         <br> - If this option is set and it is not specified in the setting object otherwise, <code>fristLevelPositionsFromCenter</code> is set to <code>true</code> and <code>positionSkipOnFirstLevel</code> to <code>false</code>.
-        <br> - Options: <code>UXN.POSITION_BASE.WINDOW</code> | <code>UXN.POSITION_BASE.PAGE</code>
-        <br> - Type: <code>UXN.POSITION_BASE</code> / <code>jQuery</code> / <code>HTMLElement</code>
+        <br> - Options: <code>UXN.POSITIONS.BASE.WINDOW</code> | <code>UXN.POSITIONS.BASE.PAGE</code>
+        <br> - Type: <code>UXN.POSITIONS.BASE</code> / <code>jQuery</code> / <code>HTMLElement</code>
+    </li>
+
+    <li>
+        <code>inheritPositions</code> (default: <code>UXN.POSITIONS.DIRECTION.BOTH</code>):
+        <br> - Direction of position which will be inherited from parents.
+        <br> - Options: <code>UXN.POSITIONS.DIRECTION.BOTH</code> | <code>UXN.POSITIONS.DIRECTION.VERTICAL</code> | <code>UXN.POSITIONS.DIRECTION.HORIZONTAL</code> | <code>UXN.POSITIONS.DIRECTION.NONE</code>
+        <br> - Type: <code>UXN.POSITIONS.DIRECTION</code>
     </li>
 
     <li id="firstLevelPositionsFromCenter">
-        <code>firstLevelPositionsFromCenter</code> (default: <code>false</code>):
-        <br> - Position at the first level will be set to be directed to larger space (based on the postions of items). The following submenus will follow positions of its parent submenus, if possible.
-        <br> - Type: <code>Boolean</code>
+        <code>firstLevelPositionsFromCenter</code> (default: <code>UXN.POSITIONS.DIRECTION.NONE</code>):
+        <br> - Position at the first level will be set to be directed to larger space (based on the postions of items). The following submenus will follow positions of its parents, if possible.
+        <br> - Options: <code>UXN.POSITIONS.DIRECTION.BOTH</code> | <code>UXN.POSITIONS.DIRECTION.VERTICAL</code> | <code>UXN.POSITIONS.DIRECTION.HORIZONTAL</code> | <code>UXN.POSITIONS.DIRECTION.NONE</code>
+        <br> - Type: <code>UXN.POSITIONS.DIRECTION</code>
     </li>
 
     <li>

@@ -453,11 +453,6 @@
         UXN.PREFIX = "UXN";
 
         UXN.EVENT_NS = "UXN";
-        
-        UXN.POSITION_BASE = {
-            PAGE  : 1,
-            WINDOW: 2
-        };
 
         UXN.FADING_TYPE = {
             NONE      : 0,
@@ -470,7 +465,19 @@
                                 
             MAX_BATCH: 10,
             
-            RELEASE_DELAY: 16
+            RELEASE_DELAY: 16,
+
+            DIRECTION: {
+                NONE: 0,
+                BOTH: 1,
+                HORIZONTAL: 2,
+                VERTICAL: 3
+            },
+
+            BASE: {
+                PAGE  : 1,
+                WINDOW: 2
+            }
         };
 
         UXN.EVENT_TIMERS = {
@@ -519,9 +526,10 @@
             setPositionsOnElement: false,
             setPositionsOnDeactivation: true,
             positionSkipOnFirstLevel: true,
-            firstLevelPositionsFromCenter: false,
-            positionBase          : UXN.POSITION_BASE.WINDOW,
-            firstLevelPositionBase: UXN.POSITION_BASE.WINDOW,
+            firstLevelPositionsFromCenter: UXN.POSITIONS.DIRECTION.NONE,
+            inheritPosition: UXN.POSITIONS.DIRECTION.BOTH,
+            positionBase          : UXN.POSITIONS.BASE.WINDOW,
+            firstLevelPositionBase: UXN.POSITIONS.BASE.WINDOW,
             positionOffset: 10,
 
             onResetPositionsStart: null,
@@ -685,18 +693,18 @@
                 this.positionBaseLastScroll = { y: 0, x: 0 };
                 this.firstLevelPositionBaseLastScroll = { y: 0, x: 0 };
                 
-                if (this.opt.positionBase !== UXN.POSITION_BASE.WINDOW) {
+                if (this.opt.positionBase !== UXN.POSITIONS.BASE.WINDOW) {
 
-                    this.$positionBase = this.opt.positionBase === UXN.POSITION_BASE.PAGE ? $html : UXN.U.jQueryfy(this.opt.positionBase);
+                    this.$positionBase = this.opt.positionBase === UXN.POSITIONS.BASE.PAGE ? $html : UXN.U.jQueryfy(this.opt.positionBase);
                     
                 } else {
                     
                     this.$positionBase = $NULL;
                 }
                 
-                if (this.opt.firstLevelPositionBase !== UXN.POSITION_BASE.WINDOW) {
+                if (this.opt.firstLevelPositionBase !== UXN.POSITIONS.BASE.WINDOW) {
                     
-                    this.$firstLevelPositionBase = this.opt.firstLevelPositionBase === UXN.POSITION_BASE.PAGE ? 
+                    this.$firstLevelPositionBase = this.opt.firstLevelPositionBase === UXN.POSITIONS.BASE.PAGE ?
                             $html : UXN.U.jQueryfy(this.opt.firstLevelPositionBase);
                     
                 } else {
@@ -747,7 +755,7 @@
 
                 if (options.firstLevelPositionBase !== undefined && options.firstLevelPositionsFromCenter === undefined) {
 
-                    options.firstLevelPositionsFromCenter = true;
+                    options.firstLevelPositionsFromCenter = UXN.POSITIONS.DIRECTION.BOTH;
                 }
 
                 if (options.firstLevelPositionBase !== undefined && options.positionSkipOnFirstLevel === undefined) {
@@ -1212,13 +1220,13 @@
                 
                 if (this.opt.setPositionsOnScroll) {
 
-                    if (this.opt.positionBase !== UXN.POSITION_BASE.WINDOW) {
+                    if (this.opt.positionBase !== UXN.POSITIONS.BASE.WINDOW) {
                         
                         this.$positionBase.on("scroll." + UXN.EVENT_NS, $.proxy(scrollHandler, this, true));
                     }
                     
 
-                    if (this.opt.firstlevelPositionBase !== UXN.POSITION_BASE.WINDOW) {
+                    if (this.opt.firstlevelPositionBase !== UXN.POSITIONS.BASE.WINDOW) {
 
                         this.$firstLevelPositionBase.on("scroll." + UXN.EVENT_NS, $.proxy(scrollHandler, this, true));
                     }
@@ -1592,7 +1600,7 @@
                 
                     positionBaseRect = getPositionBaseData.call(this, true);
                 
-                if (this.$positionBase.length && this.opt.positionBase !== UXN.POSITION_BASE.WINDOW) {
+                if (this.$positionBase.length && this.opt.positionBase !== UXN.POSITIONS.BASE.WINDOW) {
 
                     positionBaseRect = UXN.U.getRect(this.$positionBase);
 
@@ -1601,7 +1609,7 @@
                 
                 if (!elementSizeChanged && this.$firstLevelPositionBase.length && 
                     this.opt.firstLevelPositionBase !== this.opt.positionBase &&
-                    this.opt.firstLevelPositionBase !== UXN.POSITION_BASE.WINDOW) {
+                    this.opt.firstLevelPositionBase !== UXN.POSITIONS.BASE.WINDOW) {
 
                     if (!this.$positionBase.length || this.$positionBase[0] !== this.$firstLevelPositionBase[0]) {
 
@@ -2652,12 +2660,10 @@
 
                         //hide already opened subnavs in the same level
                         if ((this.opt.closeOnlyInLevel && 
-                             (subnav$ || this.$currentSubnav).length && 
-                             this.hasSubnavOpenedSubnav(subnav$ || this.$currentSubnav)) || 
+                             (subnav$ || this.$currentSubnav).length && this.hasSubnavOpenedSubnav(subnav$ || this.$currentSubnav)) ||
                             
                             (this.opt.doNotCloseFirstLevel && 
-                             isCurrentSubnavFirstLevel.call(this) && 
-                             this.getOpenedItemsInSubnav(this.$firstLevel).length === 1)) {
+                             isCurrentSubnavFirstLevel.call(this) && this.getOpenedItemsInSubnav(this.$firstLevel).length === 1)) {
 
                             hideFollowingSubnavs.call(this, subnav$ || this.$currentSubnav, $opener, true);
                         }
@@ -3626,7 +3632,7 @@
                     
                     this.$resetStartSubnav = onlyFirstLevel ? this.$firstLevel : $parentSubnav;
                     
-                    request.$resetStartSubnav = onlyFirstLevel ? this.$firstLevel : $parentSubnav;
+                    request.$resetStartSubnav = this.$resetStartSubnav;
                     
                     request.nextLevel = UXN.U.toArrayWith$Objects(
                         this.getOpenersWithSubnavInSubnav(onlyFirstLevel ? this.$firstLevel : $subnavs)
@@ -3968,7 +3974,7 @@
 
                 UXN.U.removeClass($subnav, this.opt.subnavTop, this.opt.subnavBottom, this.opt.subnavRight, this.opt.subnavLeft);
                 
-                if (doNotAddClasses) {
+                if (doNotAddClasses || this.opt.inheritPosition === UXN.POSITIONS.DIRECTION.NONE) {
                     
                     return;
                 }
@@ -3977,24 +3983,30 @@
                     
                     addClassCall = [];
                 
-                if (UXN.U.hasClass($parent, this.opt.subnavTop)) {
+                if (this.opt.inheritPosition == UXN.POSITIONS.DIRECTION.BOTH || this.opt.inheritPosition === UXN.POSITIONS.DIRECTION.VERTICAL) {
 
-                    addClassCall.push(this.opt.subnavTop);
+                    if (UXN.U.hasClass($parent, this.opt.subnavTop)) {
 
-                } else if (UXN.U.hasClass($parent, this.opt.subnavBottom)) {
+                        addClassCall.push(this.opt.subnavTop);
 
-                    addClassCall.push(this.opt.subnavBottom);
+                    } else if (UXN.U.hasClass($parent, this.opt.subnavBottom)) {
+
+                        addClassCall.push(this.opt.subnavBottom);
+                    }
                 }
 
-                if (UXN.U.hasClass($parent, this.opt.subnavLeft)) {
+                if (this.opt.inheritPosition == UXN.POSITIONS.DIRECTION.BOTH || this.opt.inheritPosition === UXN.POSITIONS.DIRECTION.HORIZONTAL) {
 
-                    addClassCall.push(this.opt.subnavLeft);
+                    if (UXN.U.hasClass($parent, this.opt.subnavLeft)) {
 
-                } else if (UXN.U.hasClass($parent, this.opt.subnavRight)) {
+                        addClassCall.push(this.opt.subnavLeft);
 
-                    addClassCall.push(this.opt.subnavRight);
+                    } else if (UXN.U.hasClass($parent, this.opt.subnavRight)) {
+
+                        addClassCall.push(this.opt.subnavRight);
+                    }
                 }
-                
+
                 if (addClassCall.length) {
 
                     addClassCall.unshift($subnav);
@@ -4015,7 +4027,7 @@
                     UXN.U.removeClass($item, this.opt.itemHasTop, this.opt.itemHasBottom, this.opt.itemHasRight, this.opt.itemHasLeft);
                 }
 
-                if (doNotAddClasses) {
+                if (doNotAddClasses || this.opt.inheritPosition === UXN.POSITIONS.DIRECTION.NONE) {
                     
                     return;
                 }
@@ -4026,26 +4038,32 @@
                     
                     addClassCallItem = [$item];
                 
-                if (UXN.U.hasClass($parent, this.opt.subnavTop)) {
+                if (this.opt.inheritPosition == UXN.POSITIONS.DIRECTION.BOTH || this.opt.inheritPosition === UXN.POSITIONS.DIRECTION.VERTICAL) {
 
-                    addClassCallOpener.push(this.opt.openerHasTop);
-                    addClassCallItem.push(this.opt.itemHasTop);
+                    if (UXN.U.hasClass($parent, this.opt.subnavTop)) {
 
-                } else if (UXN.U.hasClass($parent, this.opt.subnavBottom)) {
+                        addClassCallOpener.push(this.opt.openerHasTop);
+                        addClassCallItem.push(this.opt.itemHasTop);
 
-                    addClassCallOpener.push(this.opt.openerHasBottom);
-                    addClassCallItem.push(this.opt.itemHasBottom);
+                    } else if (UXN.U.hasClass($parent, this.opt.subnavBottom)) {
+
+                        addClassCallOpener.push(this.opt.openerHasBottom);
+                        addClassCallItem.push(this.opt.itemHasBottom);
+                    }
                 }
 
-                if (UXN.U.hasClass($parent, this.opt.subnavLeft)) {
+                if (this.opt.inheritPosition == UXN.POSITIONS.DIRECTION.BOTH || this.opt.inheritPosition === UXN.POSITIONS.DIRECTION.HORIZONTAL) {
 
-                    addClassCallOpener.push(this.opt.openerHasLeft);
-                    addClassCallItem.push(this.opt.itemHasLeft);
+                    if (UXN.U.hasClass($parent, this.opt.subnavLeft)) {
 
-                } else if (UXN.U.hasClass($parent, this.opt.subnavRight)) {
+                        addClassCallOpener.push(this.opt.openerHasLeft);
+                        addClassCallItem.push(this.opt.itemHasLeft);
 
-                    addClassCallOpener.push(this.opt.openerHasRight);
-                    addClassCallItem.push(this.opt.itemHasRight);
+                    } else if (UXN.U.hasClass($parent, this.opt.subnavRight)) {
+
+                        addClassCallOpener.push(this.opt.openerHasRight);
+                        addClassCallItem.push(this.opt.itemHasRight);
+                    }
                 }
                 
                 if (addClassCallOpener.length > 1) {
@@ -4091,60 +4109,66 @@
                             
                             horOpenerCenter = rect.left + (rect.width / 2);
 
-                        if (verBaseCenter > verOpenerCenter) {
+                        if (this.opt.firstLevelPositionsFromCenter == UXN.POSITIONS.DIRECTION.BOTH || this.opt.firstLevelPositionsFromCenter === UXN.POSITIONS.DIRECTION.VERTICAL) {
                             
-                            UXN.U.addClass(subnavs[i], this.opt.subnavBottom);
+                            if (verBaseCenter > verOpenerCenter) {
 
-                            if (this.itemOpensSubnav) {
+                                UXN.U.addClass(subnavs[i], this.opt.subnavBottom);
 
-                                UXN.U.addClass(openers[i], this.opt.itemHasBottom);
-                                
-                            } else {
-                                
-                                UXN.U.addClass(openers[i], this.opt.openerHasBottom);
-                                UXN.U.addClass(items[i], this.opt.itemHasBottom);
-                            }
-                            
-                        } else {
+                                if (this.itemOpensSubnav) {
 
-                            UXN.U.addClass(subnavs[i], this.opt.subnavTop);
-                            
-                            if (this.itemOpensSubnav) {
+                                    UXN.U.addClass(openers[i], this.opt.itemHasBottom);
 
-                                UXN.U.addClass(openers[i], this.opt.itemHasTop);
+                                } else {
+
+                                    UXN.U.addClass(openers[i], this.opt.openerHasBottom);
+                                    UXN.U.addClass(items[i], this.opt.itemHasBottom);
+                                }
 
                             } else {
 
-                                UXN.U.addClass(openers[i], this.opt.openerHasTop);
-                                UXN.U.addClass(items[i], this.opt.itemHasTop);
+                                UXN.U.addClass(subnavs[i], this.opt.subnavTop);
+
+                                if (this.itemOpensSubnav) {
+
+                                    UXN.U.addClass(openers[i], this.opt.itemHasTop);
+
+                                } else {
+
+                                    UXN.U.addClass(openers[i], this.opt.openerHasTop);
+                                    UXN.U.addClass(items[i], this.opt.itemHasTop);
+                                }
                             }
                         }
                         
-                        if (horBaseCenter > horOpenerCenter) {
-                            
-                            UXN.U.addClass(subnavs[i], this.opt.subnavRight);
-                            
-                            if (this.itemOpensSubnav) {
+                        if (this.opt.firstLevelPositionsFromCenter == UXN.POSITIONS.DIRECTION.BOTH || this.opt.firstLevelPositionsFromCenter === UXN.POSITIONS.DIRECTION.HORIZONTAL) {
 
-                                UXN.U.addClass(openers[i], this.opt.itemHasRight);
+                            if (horBaseCenter > horOpenerCenter) {
 
+                                UXN.U.addClass(subnavs[i], this.opt.subnavRight);
+
+                                if (this.itemOpensSubnav) {
+
+                                    UXN.U.addClass(openers[i], this.opt.itemHasRight);
+
+                                } else {
+
+                                    UXN.U.addClass(openers[i], this.opt.openerHasRight);
+                                    UXN.U.addClass(items[i], this.opt.itemHasRight);
+                                }
                             } else {
 
-                                UXN.U.addClass(openers[i], this.opt.openerHasRight);
-                                UXN.U.addClass(items[i], this.opt.itemHasRight);
-                            }
-                        } else {
+                                UXN.U.addClass(subnavs[i], this.opt.subnavLeft);
 
-                            UXN.U.addClass(subnavs[i], this.opt.subnavLeft);
-                            
-                            if (this.itemOpensSubnav) {
+                                if (this.itemOpensSubnav) {
 
-                                UXN.U.addClass(openers[i], this.opt.itemHasLeft);
+                                    UXN.U.addClass(openers[i], this.opt.itemHasLeft);
 
-                            } else {
+                                } else {
 
-                                UXN.U.addClass(openers[i], this.opt.openerHasLeft);
-                                UXN.U.addClass(items[i], this.opt.itemHasLeft);
+                                    UXN.U.addClass(openers[i], this.opt.openerHasLeft);
+                                    UXN.U.addClass(items[i], this.opt.itemHasLeft);
+                                }
                             }
                         }
                     }
@@ -4611,8 +4635,8 @@
 
                 var base = getBaseData.call(
                         this,
-                        this.opt.positionBase !== UXN.POSITION_BASE.WINDOW && 
-                        this.opt.positionBase !== UXN.POSITION_BASE.PAGE ? this.$positionBase : this.opt.positionBase
+                        this.opt.positionBase !== UXN.POSITIONS.BASE.WINDOW &&
+                        this.opt.positionBase !== UXN.POSITIONS.BASE.PAGE ? this.$positionBase : this.opt.positionBase
                     ),
 
                     obj = {};
@@ -4634,8 +4658,8 @@
 
                 var base = getBaseData.call(
                         this,
-                        this.opt.firstLevelPositionBase !== UXN.POSITION_BASE.WINDOW && 
-                        this.opt.firstLevelPositionBase !== UXN.POSITION_BASE.PAGE ? this.$firstLevelPositionBase : this.opt.firstLevelPositionBase
+                        this.opt.firstLevelPositionBase !== UXN.POSITIONS.BASE.WINDOW &&
+                        this.opt.firstLevelPositionBase !== UXN.POSITIONS.BASE.PAGE ? this.$firstLevelPositionBase : this.opt.firstLevelPositionBase
                     ),
                     
                     obj = {};
@@ -4663,7 +4687,7 @@
                     wWidth = $win.width(),
                     wHeight = $win.height();
 
-                if (base === UXN.POSITION_BASE.PAGE) {
+                if (base === UXN.POSITIONS.BASE.PAGE) {
 
                     var htmlRect = UXN.U.getRect($html);
 
