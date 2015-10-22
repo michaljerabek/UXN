@@ -519,6 +519,18 @@ var mainNav = new UXN({
 
         <br> - Type: <code>Number</code>
     </li>
+    
+    <li>
+        <code>stopFadingOnHover</code> (default: <code>true</code>):
+        <br> - If the user hover over a fading submenu, the submenu will be reopened.
+        <br> - Type: <code>Boolean</code>
+    </li>
+
+    <li>
+        <code>waitForFading</code> (default: <code>false</code>):
+        <br> - By default, it is possible to use (browse) only one instance. Thanks to this, if the user is browsing a navigation and hover over another navigation (UXN instance), this navigation won't be opened. The <code>waitForFading</code> property sets, whether another navigation should be openable until after all animations/transitions were completed.
+        <br> - Type: <code>Boolean</code>
+    </li>
 
     <li>
         <code>isFadedOut</code>:
@@ -539,18 +551,6 @@ var mainNav = new UXN({
         <code>onInit</code> (default: <code>null</code>):
         <br> - Function is called at the end of initialization.
         <br> - Type: <code>Function</code>
-    </li>
-
-    <li>
-        <code>stopFadingOnHover</code> (default: <code>true</code>):
-        <br> - If the user hover over a fading submenu, the submenu will be reopened.
-        <br> - Type: <code>Boolean</code>
-    </li>
-
-    <li>
-        <code>waitForFading</code> (default: <code>false</code>):
-        <br> - By default, it is possible to use (browse) only one instance. Thanks to this, if the user is browsing a navigation and hover over another navigation (UXN instance), this navigation won't be opened. The <code>waitForFading</code> property sets, whether another navigation should be openable until after all animations/transitions were completed.
-        <br> - Type: <code>Boolean</code>
     </li>
 
     <li>
