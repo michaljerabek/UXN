@@ -178,8 +178,8 @@
             }
         };
         
-        UXN.SUPPORT.ANIMATIONEND();
-        UXN.SUPPORT.TRANSITIONEND();
+        UXN.SUPPORT.ANIMATIONEND = UXN.SUPPORT.ANIMATIONEND();
+        UXN.SUPPORT.TRANSITIONEND = UXN.SUPPORT.TRANSITIONEND();
 
         UXN.U = {
             
