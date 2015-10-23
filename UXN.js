@@ -123,7 +123,7 @@
                 }
             }()),
             
-            TRANSITIONEND: (function () {
+            TRANSITIONEND: function () {
                 
                 var el = document.createElement('div'),
 
@@ -148,9 +148,9 @@
 
                 return null;
                 
-            }()),
+            },
             
-            ANIMATIONEND: (function () {
+            ANIMATIONEND: function () {
 
                 var el = document.createElement('div'),
 
@@ -175,9 +175,12 @@
 
                 return null;
                 
-            }())
+            }
         };
         
+        UXN.SUPPORT.ANIMATIONEND();
+        UXN.SUPPORT.TRANSITIONEND();
+
         UXN.U = {
             
             jQueryfy: function (elementOrSelector, $from) {
@@ -4291,8 +4294,7 @@
                 
                     horChangedDir = null;
 
-                if (isWholeSubnavInsidePositionBase.call(this, rect, base) || 
-                    skipAlreadyPositioned.call(this, $opener, $item, $subnav, rect, level)) {
+                if (isWholeSubnavInsidePositionBase.call(this, rect, base)) {
 
                     return {
                         skip: true
@@ -4349,83 +4351,6 @@
                 };
             },
 
-            skipAlreadyPositioned = function ($opener, $item, $subnav, rect, level) {
-                
-                var isTop = UXN.U.hasClass($subnav, this.opt.subnavTop),
-                    
-                    isLeft = UXN.U.hasClass($subnav, this.opt.subnavLeft),
-                
-                    base = level === 1 ? this.firstLevelPositionBase : this.positionBase;
-
-                if (isLeft && rect.left <= base.left && isTop && rect.top <= base.top) {
-
-                    UXN.U.removeClass($subnav,  this.opt.subnavTop, this.opt.subnavLeft);
-                    UXN.U.addClass($subnav, this.opt.subnavBottom, this.opt.subnavRight);
-
-                    if (this.itemOpensSubnav) {
-
-                        UXN.U.removeClass($opener, this.opt.itemHasTop, this.opt.itemHasLeft);
-                        UXN.U.addClass($opener, this.opt.itemHasBottom, this.opt.itemHasRight);
-
-                    } else {
-
-                        UXN.U.removeClass($opener, this.opt.openerHasTop, this.opt.openerHasLeft);
-                        UXN.U.addClass($opener, this.opt.openerHasBottom, this.opt.openerHasRight);
-
-                        UXN.U.removeClass($item, this.opt.itemHasTop, this.opt.itemHasLeft);
-                        UXN.U.addClass($item, this.opt.itemHasBottom, this.opt.itemHasRight);
-                    }
-                    
-                    return true;
-                }
-                
-                if (isLeft && rect.left <= base.left && !isTop && rect.bottom < base.bottom) {
-
-                    UXN.U.removeClass($subnav, this.opt.subnavLeft);
-                    UXN.U.addClass($subnav, this.opt.subnavRight);
-
-                    if (this.itemOpensSubnav) {
-
-                        UXN.U.removeClass($opener, this.opt.itemHasLeft);
-                        UXN.U.addClass($opener, this.opt.itemHasRight);
-
-                    } else {
-
-                        UXN.U.removeClass($opener, this.opt.openerHasLeft);
-                        UXN.U.addClass($opener, this.opt.openerHasRight);
-
-                        UXN.U.removeClass($item, this.opt.itemHasLeft);
-                        UXN.U.addClass($item, this.opt.itemHasRight);
-                    }
-                   
-                    return true;
-                }
-                
-                if (isTop && rect.top <= base.top && !isLeft && rect.right < base.right) {
-                    
-                    UXN.U.removeClass($subnav, this.opt.subnavTop);
-                    UXN.U.addClass($subnav, this.opt.subnavBottom);
-                    
-                    if (this.itemOpensSubnav) {
-
-                        UXN.U.removeClass($opener, this.opt.itemHasTop);
-                        UXN.U.addClass($opener, this.opt.itemHasBottom);
-
-                    } else {
-
-                        UXN.U.removeClass($opener, this.opt.openerHasTop);
-                        UXN.U.addClass($opener, this.opt.openerHasBottom);
-
-                        UXN.U.removeClass($item, this.opt.itemHasTop);
-                        UXN.U.addClass($item, this.opt.itemHasBottom);
-                    }
-
-                    return true;
-                }
-                
-                return false;
-            },
-            
             setPosition2 = function (data, level, request, start) {
                 
                 start = start || 0;
