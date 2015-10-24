@@ -626,6 +626,8 @@
             
             skipMouseEventsCounter = 0,
             
+            docWidth = $doc.width(),
+
             lastWinWidth = $win.width(),
             
             lastWinHeight = $win.height(),
@@ -643,6 +645,8 @@
             byScroll = 0,
 
             lastScrollX = 0, lastScrollY = 0,
+
+            scrollX = $win.scrollLeft(),
 
             horizontalScrollDirection = null,
             
@@ -699,21 +703,25 @@
                 if (this.opt.positionBase !== UXN.POSITIONS.BASE.WINDOW) {
 
                     this.$positionBase = this.opt.positionBase === UXN.POSITIONS.BASE.PAGE ? $html : UXN.U.jQueryfy(this.opt.positionBase);
-                    
+
                 } else {
                     
                     this.$positionBase = $NULL;
                 }
+
+                getPositionBaseData.call(this);
                 
                 if (this.opt.firstLevelPositionBase !== UXN.POSITIONS.BASE.WINDOW) {
                     
                     this.$firstLevelPositionBase = this.opt.firstLevelPositionBase === UXN.POSITIONS.BASE.PAGE ?
                             $html : UXN.U.jQueryfy(this.opt.firstLevelPositionBase);
-                    
+
                 } else {
                     
                     this.$firstLevelPositionBase = $NULL;
                 }
+
+                getFirstLevelPositionBaseData.call(this);
                 
                 this.fadingOuts = [];
                                 
@@ -3622,6 +3630,9 @@
                         this.opt.onResetPositionsStart.call(this);
                     }
 
+                    docWidth = $doc.width();
+                    scrollX = $win.scrollLeft();
+
                     getFirstLevelPositionBaseData.call(this);
                     getPositionBaseData.call(this);
 
@@ -4424,11 +4435,47 @@
                             }
                         }
                     }
+
+                    setPosition3.call(this, data, i, rect, level);
                 }
 
                 resetNext.call(this, request);
             },
             
+            setPosition3 = function (data, i, lastRect, level) {
+
+                if ((level === 1 && this.opt.firstLevelPositionBase === UXN.POSITIONS.BASE.WINDOW) ||
+                    (level !== 1 && this.opt.positionBase === UXN.POSITIONS.BASE.WINDOW)) {
+
+                    if (data.results[i].horChangedDir === this.opt.subnavRight || !data.results[i].horChangedDir) {
+
+                        var afterRect = UXN.U.getRect(data.subnavs[i]),
+
+                            exceedsDoc = afterRect.right + scrollX > docWidth - this.opt.positionOffset;
+
+                        if (exceedsDoc && Math.abs(lastRect.left) <= $win.scrollLeft()) {
+
+                            UXN.U.removeClass(data.subnavs[i], this.opt.subnavRight);
+                            UXN.U.addClass(data.subnavs[i], this.opt.subnavLeft);
+
+                            if (this.itemOpensSubnav) {
+
+                                UXN.U.removeClass(data.openers[i], this.opt.itemHasRight);
+                                UXN.U.addClass(data.openers[i], this.opt.itemHasLeft);
+
+                            } else {
+
+                                UXN.U.removeClass(data.openers[i], this.opt.openerHasRight);
+                                UXN.U.addClass(data.openers[i], this.opt.openerHasLeft);
+
+                                UXN.U.removeClass(data.items[i], this.opt.itemHasRight);
+                                UXN.U.addClass(data.items[i], this.opt.itemHasLeft);
+                            }
+                        }
+                    }
+                }
+            },
+
             resetNext = function (request) {
                     
                 resetPositions.call(this, request, true);
