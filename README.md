@@ -1,4 +1,4 @@
-<h1>UXN (1.0 RC1) - Documentation</h1>
+<h1>UXN (1.0 RC2) - Documentation</h1>
 
 <p>(hopefully in English)</p>
 
