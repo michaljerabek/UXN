@@ -534,6 +534,7 @@
             positionBase          : UXN.POSITIONS.BASE.WINDOW,
             firstLevelPositionBase: UXN.POSITIONS.BASE.WINDOW,
             positionOffset: 10,
+            hideOverflow: true,
 
             onResetPositionsStart: null,
             onResetPositionsEnd  : null,
@@ -998,19 +999,41 @@
                             
                             isLast = i === INSTANCES_COUNT - 1 || (remove && INSTANCES[i + 1] === this);
                             
-                            itemSelector += getResetSelectorForItem.call(INSTANCES[i], isLast);
+                            if (INSTANCES[i].opt.hideOverflow) {
+
+                                if (!isLast) {
+
+                                    isLast = true;
+
+                                    var next = i + 1;
+
+                                    for (next; next < INSTANCES_COUNT; next++) {
+
+                                        if (INSTANCES[next].opt.hideOverflow) {
+
+                                            isLast = false;
+
+                                            break;
+                                        }
+                                    }
+                                }
+
+                                itemSelector += getResetSelectorForItem.call(INSTANCES[i], isLast);
+                            }
 
                             subnavSelector += getResetSelectorForSubnav.call(INSTANCES[i], isLast);
                         }
 
                         var $style = $inserted.length ? $inserted: $("<style />"),
                             
-                            styleText = [
+                            styleText = itemSelector.length ? [
 
                             "\n" + itemSelector,
                                 "\t\toverflow: hidden !important;\n",
                             "\t}\n",
 
+                            "\n" + subnavSelector
+                        ] : [
                             "\n" + subnavSelector
                         ];
                         
@@ -1049,7 +1072,7 @@
                     style += [
 
                         "\n" + getResetSelectorForItem.call(this, true),
-                            "\t\toverflow: hidden !important;\n",
+                            this.opt.hideOverflow ? "\t\toverflow: hidden !important;\n" : "",
                         "\t}\n",
 
                         "\n" + getResetSelectorForSubnav.call(this, true),

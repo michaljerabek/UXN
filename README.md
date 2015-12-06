@@ -1,4 +1,4 @@
-<h1>UXN (1.0 RC2) - Documentation</h1>
+<h1>UXN 1.0 - Documentation</h1>
 
 <p>(hopefully in English)</p>
 
@@ -658,6 +658,12 @@ var mainNav = new UXN({
         <code>positionOffset</code> (default: <code>10</code>):
         <br> - Space (in px) that should be around the edges of <code>positionBase</code>.
         <br> - Type: <code>Number</code>
+    </li>
+
+    <li>
+        <code>hideOverflow</code> (default: <code>true</code>):
+        <br> - Hides overflows of items (openers or submenus) during position adjustment.
+        <br> - Type: <code>Boolen</code>
     </li>
 
     <!--
